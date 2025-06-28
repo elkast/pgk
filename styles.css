@@ -222,6 +222,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    transition: transform 0.3s ease;
+    filter: brightness(1.05);
+    z-index: 1;
+}
+
+.portrait-image:hover {
+    transform: scale(1.02);
 }
 
 .portrait-frame {
