@@ -1,0 +1,364 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnamien Konan - Vision pour la Côte d'Ivoire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Gnamien Konan</span>
+            </div>
+            <div class="nav-links">
+                <a href="#accueil" class="nav-link active">Accueil</a>
+                <a href="#vision" class="nav-link">Vision</a>
+                <a href="#biographie" class="nav-link">Parcours</a>
+                <a href="#actualites" class="nav-link">Actualités</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Une vision</span>
+                    <span class="title-line">nouvelle pour</span>
+                    <span class="title-line highlight">la Côte d'Ivoire</span>
+                </h1>
+                <p class="hero-quote">
+                    "Le développement durable de notre nation passe par l'innovation, 
+                    l'intégrité et l'engagement de chaque citoyen."
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" id="parrainageBtn">
+                        Je soutiens cette vision
+                    </button>
+                    <button class="btn-secondary" id="decouvrir-projet-btn">
+                        Découvrir le projet
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="portrait-container">
+                    <img src="gnamien-portrait.png" alt="Ministre Gnamien Konan" class="portrait-image">
+                    <div class="portrait-frame"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number" data-count="15000">0</span>
+                <span class="stat-label">Soutiens citoyens</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="78">0</span>
+                <span class="stat-label">Communes mobilisées</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="25">0</span>
+                <span class="stat-label">Années d'expérience</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Une vision pour l'avenir</h2>
+                <p class="section-subtitle">
+                    Des engagements concrets pour une Côte d'Ivoire prospère et unie
+                </p>
+            </div>
+            <div class="vision-carousel">
+                <div class="vision-slides">
+                    <div class="vision-slide active">
+                        <img src="vision-governance.png" alt="Gouvernance exemplaire" class="vision-image">
+                        <div class="vision-content">
+                            <div class="vision-icon">🏛️</div>
+                            <h3>Gouvernance exemplaire</h3>
+                            <p>Transparence, intégrité et modernisation de l'administration publique</p>
+                        </div>
+                    </div>
+                    <div class="vision-slide">
+                        <img src="vision-education.png" alt="Éducation d'excellence" class="vision-image">
+                        <div class="vision-content">
+                            <div class="vision-icon">🎓</div>
+                            <h3>Éducation d'excellence</h3>
+                            <p>Formation de qualité et insertion professionnelle pour tous nos jeunes</p>
+                        </div>
+                    </div>
+                    <div class="vision-slide">
+                        <img src="vision-economy.png" alt="Économie innovante" class="vision-image">
+                        <div class="vision-content">
+                            <div class="vision-icon">💼</div>
+                            <h3>Économie innovante</h3>
+                            <p>Développement des PME et transformation digitale</p>
+                        </div>
+                    </div>
+                    <div class="vision-slide">
+                        <img src="vision-environment.png" alt="Développement durable" class="vision-image">
+                        <div class="vision-content">
+                            <div class="vision-icon">🌍</div>
+                            <h3>Développement durable</h3>
+                            <p>Protection de l'environnement et énergies renouvelables</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vision-indicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                    <span class="indicator" data-slide="2"></span>
+                    <span class="indicator" data-slide="3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biography Section -->
+    <section id="biographie" class="biography">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Un parcours d'excellence</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1995</div>
+                    <div class="timeline-content">
+                        <h4>Diplômé de l'École Nationale d'Administration</h4>
+                        <p>Formation d'excellence en administration publique</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h4>Directeur Général adjoint</h4>
+                        <p>Modernisation des services publics</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h4>Ministre délégué</h4>
+                        <p>Réformes structurelles et innovation</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h4>Ministre d'État</h4>
+                        <p>Leadership et transformation digitale</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="actualites" class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Actualités</h2>
+            </div>
+            <div class="news-carousel">
+                <button class="carousel-btn prev" id="news-prev">‹</button>
+                <div class="news-slider" id="news-slider">
+                    <!-- Les actualités seront chargées dynamiquement via l'API -->
+                </div>
+                <button class="carousel-btn next" id="news-next">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Rejoignez le mouvement</h2>
+                    <p>Ensemble, construisons l'avenir de la Côte d'Ivoire</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>contact@gnamienkonan.ci</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+225 XX XX XX XX XX</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="nom" name="nom" placeholder="Nom complet" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telephone" name="telephone" placeholder="Téléphone">
+                    </div>
+                    <div class="form-group">
+                        <select id="commune" name="commune" required>
+                            <option value="">Sélectionnez votre commune</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouake">Bouaké</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="korhogo">Korhogo</option>
+                            <option value="san-pedro">San-Pédro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Votre message" rows="4"></textarea>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">J'accepte le traitement de mes données personnelles</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Gnamien Konan</h4>
+                    <p>Une vision nouvelle pour la Côte d'Ivoire</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens utiles</h4>
+                    <ul>
+                        <li><a href="#vision">Vision</a></li>
+                        <li><a href="#biographie">Parcours</a></li>
+                        <li><a href="#actualites">Actualités</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gnamien Konan. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Parrainage Modal -->
+    <div id="parrainageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Formulaire de Parrainage</h2>
+            <form id="parrainageForm" class="parrainage-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="p_nom">Nom*</label>
+                        <input type="text" id="p_nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p_prenom">Prénom*</label>
+                        <input type="text" id="p_prenom" name="prenom" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="p_email">Email*</label>
+                        <input type="email" id="p_email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p_telephone">Téléphone*</label>
+                        <input type="tel" id="p_telephone" name="telephone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="p_commune">Commune*</label>
+                        <select id="p_commune" name="commune" required>
+                            <option value="">Sélectionnez votre commune</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouake">Bouaké</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="korhogo">Korhogo</option>
+                            <option value="san-pedro">San-Pédro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="p_profession">Profession</label>
+                        <input type="text" id="p_profession" name="profession">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="p_cni">Numéro CNI*</label>
+                    <input type="text" id="p_cni" name="cni" required>
+                </div>
+                <div class="form-group">
+                    <label for="p_type">Type de parrainage*</label>
+                    <select id="p_type" name="type_parrainage" required>
+                        <option value="">Choisissez le type</option>
+                        <option value="moral">Soutien moral</option>
+                        <option value="physique">Parrainage physique</option>
+                    </select>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="p_consent" name="consent" required>
+                    <label for="p_consent">J'accepte le traitement de mes données personnelles et confirme l'exactitude des informations fournies*</label>
+                </div>
+                <button type="submit" class="btn-primary">Confirmer mon parrainage</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Découvrir le Projet -->
+    <div id="projetModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="modal-close" id="projet-close">&times;</span>
+            <h2>Découvrir le Projet</h2>
+            <div class="projet-content">
+                <div class="projet-section">
+                    <h3>Notre Mission</h3>
+                    <p>Transformer la Côte d'Ivoire en un pays moderne, prospère et inclusif où chaque citoyen peut réaliser son potentiel.</p>
+                </div>
+                <div class="projet-section">
+                    <h3>Nos Priorités</h3>
+                    <ul>
+                        <li>Modernisation de l'administration publique</li>
+                        <li>Développement de l'économie numérique</li>
+                        <li>Amélioration du système éducatif</li>
+                        <li>Protection de l'environnement</li>
+                        <li>Promotion de l'emploi des jeunes</li>
+                    </ul>
+                </div>
+                <div class="projet-section">
+                    <h3>Nos Engagements</h3>
+                    <p>Nous nous engageons à œuvrer avec transparence, intégrité et détermination pour le développement durable de notre nation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
