@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - L'Afrique qui ose avec Gnamien Konan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation (Copie de la navigation de l'index.html pour la cohérence) -->
+    <nav class="barre-navigation">
+        <div class="conteneur-navigation">
+            <div class="logo-navigation">
+                <h2>L'Afrique qui ose</h2>
+            </div>
+            <ul class="menu-navigation">
+                <li><a href="index.html#accueil" class="lien-navigation">Accueil</a></li>
+                <li><a href="index.html#apropos" class="lien-navigation">Qui est Gnamien?</a></li>
+                <li><a href="index.html#mouvement" class="lien-navigation">Le Mouvement</a></li>
+                <li><a href="index.html#programme" class="lien-navigation">Programme</a></li>
+                <li><a href="index.html#parrainage" class="lien-navigation">Parrainages</a></li>
+                <li><a href="index.html#contact" class="lien-navigation">Contact</a></li>
+            </ul>
+            <div class="actions-navigation">
+                <button class="bouton-secondaire" onclick="ouvrirModale('modale-adhesion')">Rejoindre</button>
+                <button class="bouton-primaire" onclick="ouvrirModale('modale-don')">Faire un don</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-legale">
+        <div class="conteneur">
+            <div class="entete-section">
+                <h2>Mentions Légales</h2>
+                <p>Informations légales concernant le site "L'Afrique qui ose avec Gnamien Konan"</p>
+            </div>
+
+            <div class="contenu-legale">
+                <h3>1. Éditeur du site</h3>
+                <p>[Nom de l'organisation/parti politique ou de la personne responsable]</p>
+                <p>[Forme juridique, ex: Association loi 1901]</p>
+                <p>[Adresse du siège social]</p>
+                <p>[Numéro de téléphone]</p>
+                <p>[Adresse e-mail]</p>
+                <p>[Numéro d'identification le cas échéant, ex: SIRET, RNA]</p>
+
+                <h3>2. Directeur de la publication</h3>
+                <p>[Nom et prénom du directeur de la publication]</p>
+                <p>[Adresse e-mail du directeur de la publication]</p>
+
+                <h3>3. Hébergement du site</h3>
+                <p>[Nom de l'hébergeur]</p>
+                <p>[Adresse de l'hébergeur]</p>
+                <p>[Numéro de téléphone de l'hébergeur]</p>
+
+                <h3>4. Propriété intellectuelle</h3>
+                <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques. La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.</p>
+                <p>Les marques citées sur ce site sont déposées par les sociétés qui en sont propriétaires. L'utilisation de ces marques sans autorisation est strictement interdite.</p>
+
+                <h3>5. Collecte de données personnelles</h3>
+                <p>Ce site peut collecter des données personnelles via des formulaires (parrainage, adhésion, don). Les informations recueillies sont enregistrées dans un fichier informatisé par [Nom de l'organisation] pour [finalités de la collecte, ex: la gestion des adhésions, des parrainages, des dons, l'envoi d'informations sur le mouvement].</p>
+                <p>Conformément à la réglementation en vigueur, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données vous concernant. Pour exercer ces droits, veuillez contacter [Adresse e-mail de contact pour les données personnelles].</p>
+                <p>Pour plus de détails sur la gestion de vos données personnelles, veuillez consulter notre <a href="politique-confidentialite.html">Politique de Confidentialité</a>.</p>
+
+                <h3>6. Cookies</h3>
+                <p>Ce site peut utiliser des cookies pour [ex: améliorer l'expérience utilisateur, réaliser des statistiques de visite]. Vous pouvez gérer vos préférences en matière de cookies via les paramètres de votre navigateur.</p>
+
+                <h3>7. Limitation de responsabilité</h3>
+                <p>L'éditeur ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site, et résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications indiquées au point 4, soit de l'apparition d'un bug ou d'une incompatibilité.</p>
+                <p>L'éditeur décline toute responsabilité quant à l'utilisation qui pourrait être faite des informations et contenus présents sur le site.</p>
+                <p>L'éditeur s'engage à sécuriser au mieux le site, cependant sa responsabilité ne pourra être mise en cause si des données indésirables sont importées et installées sur son site à son insu.</p>
+
+                <p style="font-size: 0.9em; margin-top: 50px;">Dernière mise à jour : 24 Juillet 2024</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modales (Copie des modales de l'index.html pour qu'elles fonctionnent sur cette page) -->
+    <div id="modale-adhesion" class="modale">
+        <div class="contenu-modale">
+            <div class="entete-modale">
+                <h3>Rejoignez le mouvement</h3>
+                <span class="fermer" onclick="fermerModale('modale-adhesion')">&times;</span>
+            </div>
+            <div class="corps-modale">
+                <p>L'avenir se construit avec celles et ceux qui osent. Le changement commence par l'engagement citoyen.</p>
+                <form id="formulaire-adhesion">
+                    <div class="groupe-formulaire">
+                        <label for="nom-adhesion">Nom & Prénom *</label>
+                        <input type="text" id="nom-adhesion" name="name" required>
+                    </div>
+                    <div class="groupe-formulaire">
+                        <label for="telephone-adhesion">Téléphone *</label>
+                        <input type="tel" id="telephone-adhesion" name="phone" required>
+                    </div>
+                    <div class="groupe-formulaire">
+                        <label for="email-adhesion">Email</label>
+                        <input type="email" id="email-adhesion" name="email">
+                    </div>
+                    <div class="groupe-formulaire">
+                        <label for="commune-adhesion">Commune *</label>
+                        <input type="text" id="commune-adhesion" name="commune" required>
+                    </div>
+                    <div class="groupe-formulaire">
+                        <label>Choisissez votre rôle :</label>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-collecteur" name="roles" value="collector">
+                            <label for="role-collecteur">Collecteur de parrainage</label>
+                        </div>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-local" name="roles" value="local">
+                            <label for="role-local">Responsable local</label>
+                        </div>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-benevole" name="roles" value="volunteer">
+                            <label for="role-benevole">Bénévole</label>
+                        </div>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-ambassadeur" name="roles" value="ambassador">
+                            <label for="role-ambassadeur">Ambassadeur digital</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="bouton-primaire">Rejoindre le mouvement</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modale-don" class="modale">
+        <div class="contenu-modale">
+            <div class="entete-modale">
+                <h3>Soutenez une campagne intègre</h3>
+                <span class="fermer" onclick="fermerModale('modale-don')">&times;</span>
+            </div>
+            <div class="corps-modale">
+                <p>100% citoyenne, votre contribution nous aide à financer une campagne transparente.</p>
+                <div class="options-don">
+                    <h4>Modalités de don :</h4>
+                    <div class="methodes-don">
+                        <div class="methode-don">
+                            <h5>Mobile Money</h5>
+                            <p>MTN: 07 07 07 07 07<br>Orange: 07 07 07 07 07<br>Moov: 07 07 07 07 07</p>
+                        </div>
+                        <div class="methode-don">
+                            <h5>Virement bancaire</h5>
+                            <p>Contactez-nous pour les détails bancaires</p>
+                        </div>
+                        <div class="methode-don">
+                            <h5>Don matériel</h5>
+                            <p>T-shirts, affiches, carburant, etc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="objectif-don">
+                    <h4>Objectif du mois :</h4>
+                    <p>Récolter 10 000 000 FCFA pour financer la tournée nationale de sensibilisation.</p>
+                    <div class="barre-progression">
+                        <div class="remplissage-progression" style="width: 35%">35%</div>
+                    </div>
+                    <p>3 500 000 FCFA collectés sur 10 000 000 FCFA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page (Copie du pied de page de l'index.html pour la cohérence) -->
+    <footer class="pied-de-page">
+        <div class="conteneur">
+            <div class="contenu-pied-de-page">
+                <div class="citation-pied-de-page">
+                    <blockquote>L'Afrique qui ose avec Gnamien Konan © 2025. Tous droits réservés.</blockquote>
+                </div>
+                <div class="liens-pied-de-page">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

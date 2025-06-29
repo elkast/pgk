@@ -18,51 +18,51 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
+    <nav class="barre-navigation">
+        <div class="conteneur-navigation">
+            <div class="logo-navigation">
                 <h2>L'Afrique qui ose</h2>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#accueil" class="nav-link">Accueil</a></li>
-                <li><a href="#apropos" class="nav-link">Qui est Gnamien?</a></li>
-                <li><a href="#mouvement" class="nav-link">Le Mouvement</a></li>
-                <li><a href="#programme" class="nav-link">Programme</a></li>
-                <li><a href="#parrainage" class="nav-link">Parrainages</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            <ul class="menu-navigation">
+                <li><a href="#accueil" class="lien-navigation">Accueil</a></li>
+                <li><a href="#apropos" class="lien-navigation">Qui est Gnamien?</a></li>
+                <li><a href="#mouvement" class="lien-navigation">Le Mouvement</a></li>
+                <li><a href="#programme" class="lien-navigation">Programme</a></li>
+                <li><a href="#parrainage" class="lien-navigation">Parrainages</a></li>
+                <li><a href="#contact" class="lien-navigation">Contact</a></li>
             </ul>
-            <div class="nav-actions">
-                <button class="btn-secondary" onclick="openModal('join-modal')">Rejoindre</button>
-                <button class="btn-primary" onclick="openModal('donate-modal')">Faire un don</button>
+            <div class="actions-navigation">
+                <button class="bouton-secondaire" onclick="ouvrirModale('modale-adhesion')">Rejoindre</button>
+                <button class="bouton-primaire" onclick="ouvrirModale('modale-don')">Faire un don</button>
             </div>
             <div class="hamburger">
-                <!-- <span></span>
                 <span></span>
-                <span></span> -->
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Section Héro -->
     <section id="accueil" class="hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
+        <div class="arriere-plan-hero">
+            <div class="superposition-hero"></div>
         </div>
-        <div class="hero-content">
-            <div class="container">
-                <div class="hero-text">
-                    <h1 class="hero-title">L'Afrique qui ose avec <span class="highlight">Gnamien Konan</span></h1>
-                    <p class="hero-subtitle">Osons une Afrique intègre, libre et prospère</p>
-                    <div class="hero-quote">
+        <div class="contenu-hero">
+            <div class="conteneur">
+                <div class="texte-hero">
+                    <h1 class="titre-hero">L'Afrique qui ose avec <span class="mise-en-evidence">Gnamien Konan</span></h1>
+                    <p class="sous-titre-hero">Osons une Afrique intègre, libre et prospère</p>
+                    <div class="citation-hero">
                         <blockquote>
-                            "L'Afrique qui ose, c'est une Afrique qui refuse la fatalité, qui croit en la justice, en l'intégrité, et en la capacité de ses enfants à la transformer."
+                            " L' Afrique Qui Ose , c'est toi, c'est moi , c'est maintenant"
                         </blockquote>
                     </div>
-                    <div class="hero-actions">
-                        <button class="btn-primary btn-large" onclick="openModal('sponsor-modal')">
+                    <div class="actions-hero" >
+                        <button class="bouton-primaire bouton-grand" onclick='window.location.href="https://forms.gle/6NpLEP1VKE47TMXF7"'>
                             <span>Je parraine Gnamien Konan</span>
                         </button>
-                        <button class="btn-secondary btn-large" onclick="openModal('join-modal')">
+                        <button class="bouton-secondaire bouton-grand" onclick="ouvrirModale('modale-adhesion')">
                             <span>Je rejoins le mouvement</span>
                         </button>
                     </div>
@@ -71,239 +71,297 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="apropos" class="about">
-        <div class="container">
-            <div class="section-header">
+    <!-- Section À Propos -->
+    <section id="apropos" class="a-propos">
+        <div class="conteneur">
+            <div class="entete-section">
                 <h2>Qui est Gnamien Konan ?</h2>
-                <p>Un homme d'intégrité au service de l'Afrique</p>
+                <p>Un homme d'intégrité et de conviction au service de l'Afrique</p>
             </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <img src="/img/gnamien-portrait.png" alt="">
+            <div class="contenu-a-propos">
+                <div class="image-a-propos">
+                    <div class="emplacement-image">
+                        <img src="/img/gnamien-portrait.png" alt="Portrait de Gnamien Konan">
                     </div>
                 </div>
-                <div class="about-text">
+                <div class="texte-a-propos">
                     <div class="bio">
-                        <p>Ancien ministre, haut fonctionnaire de douane, homme politique reconnu pour son intégrité, Gnamien Konan est l'un des rares acteurs publics à avoir osé dire non à la corruption systémique.</p>
-                        <p>Fondateur du parti "La Nouvelle Côte d'Ivoire", il incarne une vision moderne et responsable de la gouvernance africaine.</p>
+                        <p>Ancien ministre et haut fonctionnaire des douanes, Gnamien Konan s'est distingué comme un homme politique d'exception, reconnu pour son intégrité sans faille et son courage à défier la corruption systémique.</p>
+                        <p>Fondateur visionnaire du parti "La Nouvelle Côte d'Ivoire", il incarne le renouveau politique et une gouvernance africaine moderne, transparente et responsable.</p>
                     </div>
-                    <div class="values">
-                        <h3>Ses valeurs</h3>
-                        <div class="values-grid">
-                            <div class="value-item">
-                                <div class="value-icon">🏛️</div>
+                    <div class="valeurs">
+                        <h3>Ses valeurs fondamentales</h3>
+                        <div class="grille-valeurs">
+                            <div class="element-valeur">
+                                <div class="icone-valeur">🏛️</div>
                                 <h4>Intégrité</h4>
+                                <p>Une gestion transparente et honnête</p>
                             </div>
-                            <div class="value-item">
-                                <div class="value-icon">💪</div>
+                            <div class="element-valeur">
+                                <div class="icone-valeur">💪</div>
                                 <h4>Courage</h4>
+                                <p>L'audace d'agir pour le changement</p>
                             </div>
-                            <div class="value-item">
-                                <div class="value-icon">🇨🇮</div>
+                            <div class="element-valeur">
+                                <div class="icone-valeur">🇨🇮</div>
                                 <h4>Patriotisme</h4>
+                                <p>L'amour et le dévouement pour son pays</p>
                             </div>
-                            <div class="value-item">
-                                <div class="value-icon">🎓</div>
+                            <div class="element-valeur">
+                                <div class="icone-valeur">🎓</div>
                                 <h4>Compétence</h4>
+                                <p>L'excellence au service du développement</p>
                             </div>
                         </div>
                     </div>
                     <div class="combat">
-                        <h3>Son combat</h3>
-                        <p class="combat-text">Pour une Afrique libre, réconciliée, efficace et souveraine.</p>
+                        <h3>Son combat pour l'Afrique</h3>
+                        <p class="texte-combat">Pour une Afrique libre, réconciliée, efficace et souveraine, capable de prendre en main son destin et d'assurer la prospérité de ses populations.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Movement Section -->
-    <section id="mouvement" class="movement">
-        <div class="container">
-            <div class="section-header">
+    <!-- Section Mouvement -->
+    <section id="mouvement" class="mouvement">
+        <div class="conteneur">
+            <div class="entete-section">
                 <h2>Le Mouvement "L'Afrique qui ose"</h2>
                 <p>Une vision moderne pour l'Afrique de demain</p>
             </div>
-            <div class="movement-content">
-                <div class="vision-card">
+            <div class="contenu-mouvement">
+                <div class="carte-vision">
                     <h3>Notre vision</h3>
-                    <p>Une Afrique qui croit en elle, qui agit avec conscience, et qui ose sortir du mimétisme, de la corruption et du clientélisme.</p>
+                    <p>Une Afrique qui croit en elle, qui agit avec conscience, et qui ose sortir du mimétisme, de la corruption et du clientélisme pour construire son propre modèle de développement durable.</p>
                 </div>
-                <div class="objectives">
+                <div class="objectifs">
                     <h3>Nos objectifs</h3>
-                    <div class="objectives-list">
-                        <div class="objective-item">
-                            <div class="objective-icon">🏗️</div>
-                            <p>Bâtir une alternative politique forte et citoyenne</p>
+                    <div class="liste-objectifs">
+                        <div class="element-objectif">
+                            <div class="icone-objectif">🏗️</div>
+                            <h4>Alternative politique</h4>
+                            <p>Bâtir une alternative politique forte, citoyenne et innovante</p>
                         </div>
-                        <div class="objective-item">
-                            <div class="objective-icon">🔍</div>
-                            <p>Promouvoir une gouvernance transparente et efficace</p>
+                        <div class="element-objectif">
+                            <div class="icone-objectif">🔍</div>
+                            <h4>Bonne gouvernance</h4>
+                            <p>Promouvoir une gouvernance transparente, efficace et participative</p>
                         </div>
-                        <div class="objective-item">
-                            <div class="objective-icon">🤝</div>
-                            <p>Rassembler toutes les forces africaines qui veulent oser le changement</p>
+                        <div class="element-objectif">
+                            <div class="icone-objectif">🤝</div>
+                            <h4>Union africaine</h4>
+                            <p>Rassembler toutes les forces africaines progressistes pour un changement positif</p>
+                        </div>
+                        <div class="element-objectif">
+                            <div class="icone-objectif">📈</div>
+                            <h4>Développement durable</h4>
+                            <p>Mettre en œuvre des solutions innovantes pour un développement inclusif</p>
                         </div>
                     </div>
                 </div>
-                <div class="values-section">
+                <div class="section-valeurs">
                     <h3>Nos valeurs</h3>
-                    <div class="values-grid">
-                         <div class="value-card">
-                            <div class="value-icon">🚫</div>
-                                <h4>Lutte contre la corruption</h4>
+                    <div class="curseur-valeurs">
+                        <div class="piste-valeurs">
+                            <div class="diapositive-valeur">
+                                <img src="/img/corruption.png" alt="Lutte contre la corruption">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">🚫</div>
+                                    <h4>Lutte contre la corruption</h4>
+                                    <p>Pour une gestion transparente et efficace des ressources publiques</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/Justice.jpg" alt="Justice">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">⚖️</div>
+                                    <h4>Justice équitable</h4>
+                                    <p>Garantir l'équité et les droits fondamentaux pour tous</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/transaparence.png" alt="Transparence">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">🔎</div>
+                                    <h4>Transparence totale</h4>
+                                    <p>Une gouvernance claire, ouverte et responsable</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/responsable.png" alt="Responsabilité">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">🎯</div>
+                                    <h4>Responsabilité citoyenne</h4>
+                                    <p>Un engagement fort et un devoir sacré envers la nation</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/innovation.jpg" alt="Innovation">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">💡</div>
+                                    <h4>Innovation africaine</h4>
+                                    <p>Construire un avenir moderne, dynamique et authentiquement africain</p>
+                                </div>
+                            </div>
+                            <!-- Dupliquer les slides pour un défilement continu sans espace vide -->
+                            <div class="diapositive-valeur">
+                                <img src="/img/corruption.png" alt="Lutte contre la corruption">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">🚫</div>
+                                    <h4>Lutte contre la corruption</h4>
+                                    <p>Pour une gestion transparente et efficace des ressources publiques</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/Justice.jpg" alt="Justice">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">⚖️</div>
+                                    <h4>Justice équitable</h4>
+                                    <p>Garantir l'équité et les droits fondamentaux pour tous</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/transaparence.png" alt="Transparence">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">🔎</div>
+                                    <h4>Transparence totale</h4>
+                                    <p>Une gouvernance claire, ouverte et responsable</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/responsable.png" alt="Responsabilité">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">🎯</div>
+                                    <h4>Responsabilité citoyenne</h4>
+                                    <p>Un engagement fort et un devoir sacré envers la nation</p>
+                                </div>
+                            </div>
+                            <div class="diapositive-valeur">
+                                <img src="/img/innovation.jpg" alt="Innovation">
+                                <div class="contenu-diapositive">
+                                    <div class="icone-valeur">💡</div>
+                                    <h4>Innovation africaine</h4>
+                                    <p>Construire un avenir moderne, dynamique et authentiquement africain</p>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="value-card">
-                            <div class="value-icon">⚖️</div>
-                            <h4>Justice</h4>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">🔎</div>
-                            <h4>Transparence</h4>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">🎯</div>
-                            <h4>Responsabilité</h4>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">💡</div>
-                            <h4>Innovation</h4>
-                        </div>
-                       
-                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Program Section -->
-    <section id="programme" class="program">
-        <div class="container">
-            <div class="section-header">
+    <!-- Section Programme -->
+    <section id="programme" class="programme">
+        <div class="conteneur">
+            <div class="entete-section">
                 <h2>Le Programme</h2>
                 <p>Six piliers pour transformer l'Afrique</p>
             </div>
-            <div class="program-grid">
-                <div class="program-card">
-                    <div class="program-icon">🎓</div>
+            <div class="grille-programme">
+                <div class="carte-programme">
+                    <div class="icone-programme">🎓</div>
                     <h3>Éducation & emploi pour les jeunes</h3>
-                    <p>Réforme du système éducatif, formation professionnelle, soutien à l'entrepreneuriat jeune.</p>
+                    <p>Réforme complète du système éducatif, formation professionnelle adaptée au marché, soutien actif à l'entrepreneuriat jeune.</p>
                 </div>
-                <div class="program-card">
-                    <div class="program-icon">🏛️</div>
+                <div class="carte-programme">
+                    <div class="icone-programme">🏛️</div>
                     <h3>Bonne gouvernance & lutte contre la corruption</h3>
-                    <p>Transparence budgétaire, justice indépendante, numérisation des services publics.</p>
+                    <p>Transparence budgétaire totale, justice véritablement indépendante, numérisation complète des services publics.</p>
                 </div>
-                <div class="program-card">
-                    <div class="program-icon">🏭</div>
+                <div class="carte-programme">
+                    <div class="icone-programme">🏭</div>
                     <h3>Économie productive & souveraineté locale</h3>
-                    <p>Développement de l'agriculture, transformation locale, soutien aux PME.</p>
+                    <p>Modernisation de l'agriculture, transformation industrielle locale, accompagnement renforcé des PME.</p>
                 </div>
-                <div class="program-card">
-                    <div class="program-icon">🤝</div>
+                <div class="carte-programme">
+                    <div class="icone-programme">🤝</div>
                     <h3>Réconciliation & justice sociale</h3>
-                    <p>Dialogue national, vérité sur les crises passées, réforme foncière.</p>
+                    <p>Dialogue national inclusif, vérité et réparation sur les crises passées, réforme foncière équitable.</p>
                 </div>
-                <div class="program-card">
-                    <div class="program-icon">🌱</div>
+                <div class="carte-programme">
+                    <div class="icone-programme">🌱</div>
                     <h3>Transition énergétique & écologie</h3>
-                    <p>Valorisation du solaire, protection des forêts, gestion durable des ressources.</p>
+                    <p>Développement massif du solaire, programme de reforestation, gestion durable des ressources naturelles.</p>
                 </div>
-                <div class="program-card">
-                    <div class="program-icon">🌍</div>
+                <div class="carte-programme">
+                    <div class="icone-programme">🌍</div>
                     <h3>Intégration régionale & panafricanisme</h3>
-                    <p>Coopération économique sud-sud, libre circulation, diplomatie de développement.</p>
+                    <p>Renforcement de la coopération économique sud-sud, libre circulation des personnes et des biens, diplomatie active de développement.</p>
                 </div>
             </div>
-            <div class="program-download">
-                <button class="btn-primary">Télécharger le programme complet (PDF)</button>
+            <div class="telechargement-programme">
+                <button class="bouton-primaire">
+                    <span class="icone-bouton">📥</span>
+                    Télécharger le programme complet (PDF)
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Sponsorship Section -->
-    <section id="parrainage" class="sponsorship">
-        <div class="container">
-            <div class="section-header">
+    <!-- Section Parrainage -->
+    <section id="parrainage" class="parrainage">
+        <div class="conteneur">
+            <div class="entete-section">
                 <h2>Je parraine Gnamien Konan</h2>
                 <p>Votre parrainage peut changer l'histoire</p>
             </div>
-            <div class="sponsorship-content">
-                <div class="sponsorship-info">
-                    <h3>Pourquoi parrainer ?</h3>
-                    <p>Parce qu'un seul parrainage peut changer l'histoire. Vous avez le pouvoir de permettre à une candidature intègre d'être présente sur le bulletin.</p>
-                    <div class="sponsor-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" id="sponsor-count">0</div>
-                            <div class="stat-label">Parrainages collectés</div>
+            <div class="contenu-parrainage">
+                <div class="informations-parrainage">
+                    <h3>Pourquoi parrainer Gnamien Konan ?</h3>
+                    <p>Votre parrainage est crucial pour permettre à une candidature porteuse d'espoir et de changement d'être présente sur le bulletin de vote. Ensemble, nous pouvons écrire une nouvelle page de notre histoire.</p>
+                    <div class="statistiques-parrainage">
+                        <div class="element-statistique">
+                            <div class="nombre-statistique" id="compteur-parrainages">0</div>
+                            <div class="libelle-statistique">Parrainages reçus</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">500</div>
-                            <div class="stat-label">Objectif</div>
+                        <div class="element-statistique">
+                            <div class="nombre-statistique">150.000</div>
+                            <div class="libelle-statistique">Parrainages nécessaires</div>
                         </div>
                     </div>
-                </div>
-                <div class="sponsorship-form">
-                    <form id="sponsor-form">
-                        <div class="form-group">
-                            <label for="sponsor-name">Nom & Prénom *</label>
-                            <input type="text" id="sponsor-name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="sponsor-id">Numéro de carte d'électeur ou CNI *</label>
-                            <input type="text" id="sponsor-id" name="id_number" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="sponsor-location">Commune / Région *</label>
-                            <input type="text" id="sponsor-location" name="location" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="sponsor-contact">Contact (téléphone/email) *</label>
-                            <input type="text" id="sponsor-contact" name="contact" required>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="sponsor-consent" name="consent" required>
-                            <label for="sponsor-consent">Je consens à parrainer officiellement Gnamien Konan</label>
-                        </div>
-                        <button type="submit" class="btn-primary">Confirmer mon parrainage</button>
-                    </form>
+                    
+                    <div class="action-parrainage">
+                        <a href="https://forms.gle/GQfbt3NN5NgSgcFM7" target="_blank" class="bouton-primaire bouton-parrainage">
+                            <span class="icone-bouton">✨</span>
+                            JE PARRAINE GNAMIEN KONAN MAINTENANT
+                            <span class="icone-bouton">✨</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="news">
-        <div class="container">
-            <div class="section-header">
+    <!-- Section Actualités -->
+    <section class="actualites">
+        <div class="conteneur">
+            <div class="entete-section">
                 <h2>Actualités & Médias</h2>
                 <p>Suivez l'évolution du mouvement</p>
             </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-date">15 Janvier 2025</div>
+            <div class="grille-actualites">
+                <div class="carte-actualite">
+                    <div class="image-actualite"></div>
+                    <div class="contenu-actualite">
+                        <div class="date-actualite">15 Janvier 2025</div>
                         <h3>Lancement officiel du mouvement</h3>
                         <p>Gnamien Konan lance officiellement "L'Afrique qui ose" devant plus de 2000 personnes à Abidjan.</p>
                     </div>
                 </div>
-                <div class="news-card">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-date">12 Janvier 2025</div>
+                <div class="carte-actualite">
+                    <div class="image-actualite"></div>
+                    <div class="contenu-actualite">
+                        <div class="date-actualite">12 Janvier 2025</div>
                         <h3>Première tournée nationale</h3>
                         <p>Début de la tournée de sensibilisation dans les 19 régions de la Côte d'Ivoire.</p>
                     </div>
                 </div>
-                <div class="news-card">
-                    <div class="news-image"></div>
-                    <div class="news-content">
-                        <div class="news-date">10 Janvier 2025</div>
+                <div class="carte-actualite">
+                    <div class="image-actualite"></div>
+                    <div class="contenu-actualite">
+                        <div class="date-actualite">10 Janvier 2025</div>
                         <h3>Rencontre avec les jeunes</h3>
                         <p>Forum de dialogue avec la jeunesse ivoirienne sur l'avenir du pays.</p>
                     </div>
@@ -312,210 +370,189 @@
         </div>
     </section>
 
-    <!-- Comments Section -->
-    <section class="comments">
-        <div class="container">
-            <div class="section-header">
-                <h2>Vos Réactions</h2>
-                <p>Partagez vos pensées et rejoignez la conversation</p>
-            </div>
-            <div class="comments-container">
-                <div class="comment-form">
-                    <textarea id="comment-input" placeholder="Exprimez votre soutien ou partagez vos idées..."></textarea>
-                    <div class="comment-actions">
-                        <input type="file" id="comment-images" multiple accept="image/*" style="display: none;">
-                        <button type="button" onclick="document.getElementById('comment-images').click()" class="btn-secondary">
-                            📷 Ajouter des images
-                        </button>
-                        <button type="button" onclick="postComment()" class="btn-primary">Publier</button>
-                    </div>
-                    <div id="image-preview" class="image-preview"></div>
-                </div>
-                <div id="comments-list" class="comments-list">
-                    <!-- Comments will be loaded here -->
-                </div>
-                <div class="comments-loading">
-                    <button id="load-more-comments" class="btn-secondary">Voir plus de commentaires</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Section Contact -->
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
+        <div class="conteneur">
+            <div class="entete-section">
                 <h2>Contact</h2>
                 <p>Restons en contact pour bâtir ensemble l'Afrique de demain</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+            <div class="contenu-contact">
+                <div class="informations-contact">
+                    <div class="element-contact">
+                        <div class="icone-contact">📍</div>
                         <div>
                             <h4>Adresse</h4>
                             <p>Abidjan Cocody - Siège national du mouvement</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                    <div class="element-contact">
+                        <div class="icone-contact">📞</div>
                         <div>
                             <h4>Téléphone</h4>
                             <p>+225 07 07 07 07 07</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                    <div class="element-contact">
+                        <div class="icone-contact">✉️</div>
                         <div>
                             <h4>Email</h4>
                             <p>contact@lafriquequiose.com</p>
                         </div>
                     </div>
                 </div>
-                <div class="social-media">
+                <div class="reseaux-sociaux">
                     <h3>Suivez-nous</h3>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/share/1C3fU41M5t/" class="social-link">Facebook</a>
-                        <a href="https://x.com/afrose_qui72055?t=oO5FLRHt5FsYWZ0-xPJqlA&s=08" class="social-link">Twitter</a>
-                        <a href="#" class="social-link">Instagram</a>
-                        <a href="#" class="social-link">YouTube</a>
+                    <div class="liens-sociaux">
+                        <a href="https://www.facebook.com/share/1C3fU41M5t/" class="lien-social" target="_blank">
+                            <img src="/facebook-icon.png" alt="Facebook">
+                        </a>
+                        <a href="https://x.com/afrose_qui72055?t=oO5FLRHt5FsYWZ0-xPJqlA&s=08" class="lien-social" target="_blank">
+                            <img src="/x-icon.png" alt="X (Twitter)">
+                        </a>
+                        <a href="https://www.instagram.com/afriquequiose?igsh=YzljYTk1ODg3Zg==" class="lien-social" target="_blank">
+                            <img src="/instagram-icon.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@afrique.qui.ose?_t=ZM-8xc0lfmW2MA&_r=1" class="lien-social" target="_blank">
+                            <img src="/tiktok-icon.png" alt="TikTok">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-quote">
+    <!-- Pied de page -->
+    <footer class="pied-de-page">
+        <div class="conteneur">
+            <div class="contenu-pied-de-page">
+                <div class="citation-pied-de-page">
                     <blockquote>L'Afrique qui ose avec Gnamien Konan © 2025. Tous droits réservés.</blockquote>
                 </div>
-                <div class="footer-links">
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Politique de confidentialité</a>
+                <div class="liens-pied-de-page">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Modals -->
-    <div id="sponsor-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
+    <!-- Modales -->
+    <div id="modale-parrainage" class="modale">
+        <div class="contenu-modale">
+            <div class="entete-modale">
                 <h3>Parrainez Gnamien Konan</h3>
-                <span class="close" onclick="closeModal('sponsor-modal')">&times;</span>
+                <span class="fermer" onclick="fermerModale('modale-parrainage')">&times;</span>
             </div>
-            <div class="modal-body">
+            <div class="corps-modale">
                 <p>Votre parrainage est un acte citoyen fort. Remplissez ce formulaire pour officialiser votre soutien.</p>
-                <form id="modal-sponsor-form">
-                    <div class="form-group">
-                        <label for="modal-sponsor-name">Nom & Prénom *</label>
-                        <input type="text" id="modal-sponsor-name" name="name" required>
+                <form id="formulaire-parrainage-modale">
+                    <div class="groupe-formulaire">
+                        <label for="nom-parrain">Nom & Prénom *</label>
+                        <input type="text" id="nom-parrain" name="name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="modal-sponsor-id">Numéro de carte d'électeur ou CNI *</label>
-                        <input type="text" id="modal-sponsor-id" name="id_number" required>
+                    <div class="groupe-formulaire">
+                        <label for="numero-id-parrain">Numéro de carte d'électeur ou CNI *</label>
+                        <input type="text" id="numero-id-parrain" name="id_number" required>
                     </div>
-                    <div class="form-group">
-                        <label for="modal-sponsor-location">Commune / Région *</label>
-                        <input type="text" id="modal-sponsor-location" name="location" required>
+                    <div class="groupe-formulaire">
+                        <label for="localisation-parrain">Commune / Région *</label>
+                        <input type="text" id="localisation-parrain" name="location" required>
                     </div>
-                    <div class="form-group">
-                        <label for="modal-sponsor-contact">Contact *</label>
-                        <input type="text" id="modal-sponsor-contact" name="contact" required>
+                    <div class="groupe-formulaire">
+                        <label for="contact-parrain">Contact *</label>
+                        <input type="text" id="contact-parrain" name="contact" required>
                     </div>
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="modal-sponsor-consent" name="consent" required>
-                        <label for="modal-sponsor-consent">Je consens à parrainer officiellement Gnamien Konan</label>
+                    <div class="groupe-cases-a-cocher">
+                        <input type="checkbox" id="consentement-parrain" name="consent" required>
+                        <label for="consentement-parrain">Je consens à parrainer officiellement Gnamien Konan</label>
                     </div>
-                    <button type="submit" class="btn-primary">Confirmer mon parrainage</button>
+                    <button type="submit" class="bouton-primaire">Confirmer mon parrainage</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <div id="join-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div id="modale-adhesion" class="modale">
+        <div class="contenu-modale">
+            <div class="entete-modale">
                 <h3>Rejoignez le mouvement</h3>
-                <span class="close" onclick="closeModal('join-modal')">&times;</span>
+                <span class="fermer" onclick="fermerModale('modale-adhesion')">&times;</span>
             </div>
-            <div class="modal-body">
+            <div class="corps-modale">
                 <p>L'avenir se construit avec celles et ceux qui osent. Le changement commence par l'engagement citoyen.</p>
-                <form id="join-form">
-                    <div class="form-group">
-                        <label for="join-name">Nom & Prénom *</label>
-                        <input type="text" id="join-name" name="name" required>
+                <form id="formulaire-adhesion">
+                    <div class="groupe-formulaire">
+                        <label for="nom-adhesion">Nom & Prénom *</label>
+                        <input type="text" id="nom-adhesion" name="name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="join-phone">Téléphone *</label>
-                        <input type="tel" id="join-phone" name="phone" required>
+                    <div class="groupe-formulaire">
+                        <label for="telephone-adhesion">Téléphone *</label>
+                        <input type="tel" id="telephone-adhesion" name="phone" required>
                     </div>
-                    <div class="form-group">
-                        <label for="join-email">Email</label>
-                        <input type="email" id="join-email" name="email">
+                    <div class="groupe-formulaire">
+                        <label for="email-adhesion">Email</label>
+                        <input type="email" id="email-adhesion" name="email">
                     </div>
-                    <div class="form-group">
-                        <label for="join-commune">Commune *</label>
-                        <input type="text" id="join-commune" name="commune" required>
+                    <div class="groupe-formulaire">
+                        <label for="commune-adhesion">Commune *</label>
+                        <input type="text" id="commune-adhesion" name="commune" required>
                     </div>
-                    <div class="form-group">
+                    <div class="groupe-formulaire">
                         <label>Choisissez votre rôle :</label>
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="role-collector" name="roles" value="collector">
-                            <label for="role-collector">Collecteur de parrainage</label>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-collecteur" name="roles" value="collector">
+                            <label for="role-collecteur">Collecteur de parrainage</label>
                         </div>
-                        <div class="checkbox-group">
+                        <div class="groupe-cases-a-cocher">
                             <input type="checkbox" id="role-local" name="roles" value="local">
                             <label for="role-local">Responsable local</label>
                         </div>
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="role-volunteer" name="roles" value="volunteer">
-                            <label for="role-volunteer">Bénévole</label>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-benevole" name="roles" value="volunteer">
+                            <label for="role-benevole">Bénévole</label>
                         </div>
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="role-ambassador" name="roles" value="ambassador">
-                            <label for="role-ambassador">Ambassadeur digital</label>
+                        <div class="groupe-cases-a-cocher">
+                            <input type="checkbox" id="role-ambassadeur" name="roles" value="ambassador">
+                            <label for="role-ambassadeur">Ambassadeur digital</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn-primary">Rejoindre le mouvement</button>
+                    <button type="submit" class="bouton-primaire">Rejoindre le mouvement</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <div id="donate-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div id="modale-don" class="modale">
+        <div class="contenu-modale">
+            <div class="entete-modale">
                 <h3>Soutenez une campagne intègre</h3>
-                <span class="close" onclick="closeModal('donate-modal')">&times;</span>
+                <span class="fermer" onclick="fermerModale('modale-don')">&times;</span>
             </div>
-            <div class="modal-body">
+            <div class="corps-modale">
                 <p>100% citoyenne, votre contribution nous aide à financer une campagne transparente.</p>
-                <div class="donation-options">
+                <div class="options-don">
                     <h4>Modalités de don :</h4>
-                    <div class="donation-methods">
-                        <div class="donation-method">
+                    <div class="methodes-don">
+                        <div class="methode-don">
                             <h5>Mobile Money</h5>
                             <p>MTN: 07 07 07 07 07<br>Orange: 07 07 07 07 07<br>Moov: 07 07 07 07 07</p>
                         </div>
-                        <div class="donation-method">
+                        <div class="methode-don">
                             <h5>Virement bancaire</h5>
                             <p>Contactez-nous pour les détails bancaires</p>
                         </div>
-                        <div class="donation-method">
+                        <div class="methode-don">
                             <h5>Don matériel</h5>
                             <p>T-shirts, affiches, carburant, etc.</p>
                         </div>
                     </div>
                 </div>
-                <div class="donation-goal">
+                <div class="objectif-don">
                     <h4>Objectif du mois :</h4>
                     <p>Récolter 10 000 000 FCFA pour financer la tournée nationale de sensibilisation.</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 35%"></div>
+                    <div class="barre-progression">
+                        <div class="remplissage-progression" style="width: 35%">35%</div>
                     </div>
                     <p>3 500 000 FCFA collectés sur 10 000 000 FCFA</p>
                 </div>
