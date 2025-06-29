@@ -1,546 +1,584 @@
-// DOM Elements
-const navbar = document.querySelector('.navbar');
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-const parrainageBtn = document.getElementById('parrainageBtn');
-const parrainageModal = document.getElementById('parrainageModal');
-const modalClose = document.querySelector('.modal-close');
-const parrainageForm = document.getElementById('parrainageForm');
-const contactForm = document.getElementById('contactForm');
-const statNumbers = document.querySelectorAll('.stat-number');
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
-// Éléments DOM
-const decouvrir_projet_btn = document.getElementById('decouvrir-projet-btn');
-const projet_modal = document.getElementById('projetModal');
-const projet_close = document.getElementById('projet-close');
-const news_slider = document.getElementById('news-slider');
-const news_prev = document.getElementById('news-prev');
-const news_next = document.getElementById('news-next');
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+// Database simulation with localStorage
+class Database {
+    constructor() {
+        this.init();
     }
-});
 
-// Mobile navigation toggle
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    navToggle.classList.toggle('active');
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    init() {
+        if (!localStorage.getItem('sponsorships')) {
+            localStorage.setItem('sponsorships', JSON.stringify([]));
         }
-        // Close mobile menu if open
-        navLinks.classList.remove('active');
-        navToggle.classList.remove('active');
-    });
-});
-
-// Active navigation link update
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 100) {
-            current = section.getAttribute('id');
+        if (!localStorage.getItem('members')) {
+            localStorage.setItem('members', JSON.stringify([]));
         }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
+        if (!localStorage.getItem('donations')) {
+            localStorage.setItem('donations', JSON.stringify([]));
         }
-    });
-});
+    }
 
-// Animated counters
-const animateCounters = () => {
-    statNumbers.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000; // 2 seconds
-        const step = target / (duration / 16); // 60 FPS
-        let current = 0;
-        
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            counter.textContent = Math.floor(current).toLocaleString();
-        }, 16);
-    });
-};
+    addSponsorship(data) {
+        const sponsorships = JSON.parse(localStorage.getItem('sponsorships'));
+        const sponsorship = {
+            id: Date.now(),
+            ...data,
+            timestamp: new Date().toISOString()
+        };
+        sponsorships.push(sponsorship);
+        localStorage.setItem('sponsorships', JSON.stringify(sponsorships));
+        return sponsorship;
+    }
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -50px 0px'
-};
+    addMember(data) {
+        const members = JSON.parse(localStorage.getItem('members'));
+        const member = {
+            id: Date.now(),
+            ...data,
+            timestamp: new Date().toISOString()
+        };
+        members.push(member);
+        localStorage.setItem('members', JSON.stringify(members));
+        return member;
+    }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            
-            // Trigger counter animation for stats section
-            if (entry.target.classList.contains('hero-stats')) {
-                animateCounters();
-            }
-        }
-    });
-}, observerOptions);
+    getSponsorshipCount() {
+        const sponsorships = JSON.parse(localStorage.getItem('sponsorships'));
+        return sponsorships.length;
+    }
 
-// Observe elements for animation
-document.querySelectorAll('.vision-card, .timeline-item, .news-card, .hero-stats').forEach(el => {
-    observer.observe(el);
-});
-
-// Carrousel de vision automatique
-let indice_slide_actuel = 0;
-const slides_vision = document.querySelectorAll('.vision-slide');
-const indicateurs_vision = document.querySelectorAll('.indicator');
-const conteneur_slides = document.querySelector('.vision-slides');
-
-function afficher_slide_vision(indice) {
-    // Masquer tous les slides
-    slides_vision.forEach(slide => slide.classList.remove('active'));
-    indicateurs_vision.forEach(ind => ind.classList.remove('active'));
-    
-    // Afficher le slide actuel
-    slides_vision[indice].classList.add('active');
-    indicateurs_vision[indice].classList.add('active');
-    
-    // Déplacer le conteneur
-    conteneur_slides.style.transform = `translateX(-${indice * 100}%)`;
+    getMemberCount() {
+        const members = JSON.parse(localStorage.getItem('members'));
+        return members.length;
+    }
 }
 
-function slide_suivant_vision() {
-    indice_slide_actuel = (indice_slide_actuel + 1) % slides_vision.length;
-    afficher_slide_vision(indice_slide_actuel);
+const db = new Database();
+
+// Global variables
+let commentsData = [];
+let commentsCursor = null;
+let isLoadingComments = false;
+
+// DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
+
+function initializeApp() {
+    updateSponsorCount();
+    setupEventListeners();
+    setupSmoothScrolling();
+    setupNavbarScroll();
+    loadComments();
+    setupCommentsRealtime();
 }
 
-// Auto-scroll pour la vision (toutes les 4 secondes)
-setInterval(slide_suivant_vision, 4000);
-
-// Gestion des indicateurs cliquables
-indicateurs_vision.forEach((indicateur, indice) => {
-    indicateur.addEventListener('click', () => {
-        indice_slide_actuel = indice;
-        afficher_slide_vision(indice);
-    });
-});
-
-// Modal Découvrir le Projet
-decouvrir_projet_btn.addEventListener('click', () => {
-    projet_modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-});
-
-projet_close.addEventListener('click', () => {
-    projet_modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === projet_modal) {
-        projet_modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+function updateSponsorCount() {
+    const count = db.getSponsorshipCount();
+    const counterElement = document.getElementById('sponsor-count');
+    if (counterElement) {
+        animateCounter(counterElement, count);
     }
-});
+}
 
-// Gestion du carrousel d'actualités
-let position_actuelle_news = 0;
-let actualites_donnees = [];
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 100;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+    }, 20);
+}
 
-// Fonction pour charger les actualités depuis l'API
-async function charger_actualites() {
+function setupEventListeners() {
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    }
+
+    // Form submissions
+    setupFormHandlers();
+    
+    // Comment image preview
+    const commentImages = document.getElementById('comment-images');
+    if (commentImages) {
+        commentImages.addEventListener('change', handleImagePreview);
+    }
+
+    // Load more comments
+    const loadMoreBtn = document.getElementById('load-more-comments');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', loadMoreComments);
+    }
+}
+
+function setupFormHandlers() {
+    // Sponsor form
+    const sponsorForm = document.getElementById('sponsor-form');
+    if (sponsorForm) {
+        sponsorForm.addEventListener('submit', handleSponsorSubmission);
+    }
+
+    const modalSponsorForm = document.getElementById('modal-sponsor-form');
+    if (modalSponsorForm) {
+        modalSponsorForm.addEventListener('submit', handleSponsorSubmission);
+    }
+
+    // Join form
+    const joinForm = document.getElementById('join-form');
+    if (joinForm) {
+        joinForm.addEventListener('submit', handleJoinSubmission);
+    }
+}
+
+async function handleSponsorSubmission(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = {
+        name: formData.get('name'),
+        id_number: formData.get('id_number'),
+        location: formData.get('location'),
+        contact: formData.get('contact'),
+        consent: formData.get('consent') === 'on'
+    };
+
+    if (!data.consent) {
+        showNotification('Vous devez donner votre consentement pour parrainer.', 'error');
+        return;
+    }
+
     try {
-        // Simulation d'appel API - remplacer par votre vraie API
-        const reponse = await fetch('/api/actualites');
-        if (!reponse.ok) {
-            // Données de test si l'API n'est pas disponible
-            actualites_donnees = [
-                {
-                    id: 1,
-                    titre: "Lancement de l'initiative Côte d'Ivoire Numérique",
-                    contenu: "Une stratégie ambitieuse pour faire du numérique un levier de développement...",
-                    date: "2024-12-15",
-                    image: "https://via.placeholder.com/300x200/1e40af/ffffff?text=Numérique",
-                    type: "featured"
-                },
-                {
-                    id: 2,
-                    titre: "Rencontre avec les jeunes entrepreneurs",
-                    contenu: "Échanges sur l'innovation et l'entrepreneuriat...",
-                    date: "2024-12-12",
-                    image: "https://via.placeholder.com/300x200/f59e0b/ffffff?text=Entrepreneurs",
-                    type: "standard"
-                },
-                {
-                    id: 3,
-                    titre: "Forum sur l'éducation inclusive",
-                    contenu: "Des solutions concrètes pour une éducation de qualité...",
-                    date: "2024-12-10",
-                    image: "https://via.placeholder.com/300x200/10b981/ffffff?text=Education",
-                    type: "standard"
-                },
-                {
-                    id: 4,
-                    titre: "Programme de développement rural",
-                    contenu: "Modernisation de l'agriculture et développement des zones rurales...",
-                    date: "2024-12-08",
-                    image: "https://via.placeholder.com/300x200/8b5cf6/ffffff?text=Rural",
-                    type: "standard"
-                },
-                {
-                    id: 5,
-                    titre: "Inauguration du centre de formation professionnelle",
-                    contenu: "Un nouveau centre pour former nos jeunes aux métiers d'avenir...",
-                    date: "2024-12-05",
-                    image: "https://via.placeholder.com/300x200/ef4444/ffffff?text=Formation",
-                    type: "standard"
-                }
-            ];
-        } else {
-            actualites_donnees = await reponse.json();
+        const sponsorship = db.addSponsorship(data);
+        showNotification('Merci pour votre parrainage ! Votre soutien compte énormément.', 'success');
+        e.target.reset();
+        updateSponsorCount();
+        
+        // Close modal if it's the modal form
+        if (e.target.id === 'modal-sponsor-form') {
+            closeModal('sponsor-modal');
         }
-        afficher_actualites();
-    } catch (erreur) {
-        console.error('Erreur lors du chargement des actualités:', erreur);
-        // Utiliser les données de test en cas d'erreur
-        charger_actualites();
+    } catch (error) {
+        showNotification('Une erreur est survenue. Veuillez réessayer.', 'error');
+        console.error('Sponsorship error:', error);
     }
 }
 
-function afficher_actualites() {
-    news_slider.innerHTML = '';
+async function handleJoinSubmission(e) {
+    e.preventDefault();
     
-    actualites_donnees.forEach(actualite => {
-        const carte_actualite = document.createElement('article');
-        carte_actualite.className = `news-card ${actualite.type === 'featured' ? 'featured' : ''}`;
+    const formData = new FormData(e.target);
+    const roles = [];
+    const roleCheckboxes = formData.getAll('roles');
+    roleCheckboxes.forEach(role => roles.push(role));
+
+    const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        commune: formData.get('commune'),
+        roles: roles
+    };
+
+    try {
+        const member = db.addMember(data);
+        showNotification('Bienvenue dans le mouvement ! Ensemble, nous pouvons changer l\'Afrique.', 'success');
+        e.target.reset();
+        closeModal('join-modal');
+    } catch (error) {
+        showNotification('Une erreur est survenue. Veuillez réessayer.', 'error');
+        console.error('Join error:', error);
+    }
+}
+
+function handleImagePreview(e) {
+    const files = Array.from(e.target.files).slice(0, 4); // Limit to 4 images
+    const preview = document.getElementById('image-preview');
+    
+    preview.innerHTML = '';
+    
+    files.forEach((file, index) => {
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '100px';
+                img.style.maxHeight = '100px';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '10px';
+                img.style.border = '2px solid var(--border-color)';
+                preview.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+// Comments functionality
+async function loadComments() {
+    if (isLoadingComments) return;
+    
+    isLoadingComments = true;
+    
+    try {
+        const project = await window.websim.getCurrentProject();
+        const response = await fetch(`/api/v1/projects/${project.id}/comments?first=12`);
+        const data = await response.json();
         
-        carte_actualite.innerHTML = `
-            <div class="news-image" style="background-image: url('${actualite.image}'); background-size: cover; background-position: center;"></div>
-            <div class="news-content">
-                <span class="news-date">${formater_date(actualite.date)}</span>
-                <h3>${actualite.titre}</h3>
-                <p>${actualite.contenu}</p>
-                <a href="#" class="read-more" data-id="${actualite.id}">Lire la suite</a>
+        commentsData = data.comments.data;
+        commentsCursor = data.comments.has_next_page ? 'next_cursor' : null;
+        
+        renderComments(commentsData);
+        updateLoadMoreButton();
+    } catch (error) {
+        console.error('Error loading comments:', error);
+    } finally {
+        isLoadingComments = false;
+    }
+}
+
+async function loadMoreComments() {
+    if (isLoadingComments || !commentsCursor) return;
+    
+    isLoadingComments = true;
+    
+    try {
+        const project = await window.websim.getCurrentProject();
+        const response = await fetch(`/api/v1/projects/${project.id}/comments?first=12&after=${commentsCursor}`);
+        const data = await response.json();
+        
+        const newComments = data.comments.data;
+        commentsData = [...commentsData, ...newComments];
+        commentsCursor = data.comments.has_next_page ? 'next_cursor' : null;
+        
+        renderComments(commentsData);
+        updateLoadMoreButton();
+    } catch (error) {
+        console.error('Error loading more comments:', error);
+    } finally {
+        isLoadingComments = false;
+    }
+}
+
+function renderComments(comments) {
+    const commentsList = document.getElementById('comments-list');
+    if (!commentsList) return;
+    
+    commentsList.innerHTML = '';
+    
+    comments.forEach(commentData => {
+        const comment = commentData.comment;
+        const commentElement = createCommentElement(comment);
+        commentsList.appendChild(commentElement);
+    });
+}
+
+function createCommentElement(comment) {
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'comment-item';
+    commentDiv.setAttribute('data-comment-id', comment.id);
+    
+    const authorInitials = comment.author.display_name 
+        ? comment.author.display_name.split(' ').map(n => n[0]).join('').toUpperCase()
+        : comment.author.username[0].toUpperCase();
+    
+    const commentDate = new Date(comment.created_at).toLocaleDateString('fr-FR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+    
+    // Convert markdown to HTML
+    const commentHtml = DOMPurify.sanitize(marked.parse(comment.raw_content));
+    
+    commentDiv.innerHTML = `
+        <div class="comment-header">
+            <div class="comment-avatar">${authorInitials}</div>
+            <div class="comment-meta">
+                <div class="comment-author">${comment.author.display_name || comment.author.username}</div>
+                <div class="comment-date">${commentDate}</div>
             </div>
-        `;
-        
-        news_slider.appendChild(carte_actualite);
-    });
-    
-    // Ajouter les événements pour "Lire la suite"
-    document.querySelectorAll('.read-more').forEach(lien => {
-        lien.addEventListener('click', (e) => {
-            e.preventDefault();
-            const id_actualite = e.target.getAttribute('data-id');
-            afficher_actualite_complete(id_actualite);
-        });
-    });
-}
-
-function formater_date(date_str) {
-    const date = new Date(date_str);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('fr-FR', options);
-}
-
-function afficher_actualite_complete(id) {
-    const actualite = actualites_donnees.find(a => a.id == id);
-    if (actualite) {
-        // Créer et afficher un modal avec l'actualité complète
-        const modal_actualite = document.createElement('div');
-        modal_actualite.className = 'modal';
-        modal_actualite.innerHTML = `
-            <div class="modal-content large-modal">
-                <span class="modal-close">&times;</span>
-                <h2>${actualite.titre}</h2>
-                <img src="${actualite.image}" alt="${actualite.titre}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin: 1rem 0;">
-                <p><strong>Date:</strong> ${formater_date(actualite.date)}</p>
-                <div style="margin-top: 1rem; line-height: 1.6;">
-                    ${actualite.contenu}
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(modal_actualite);
-        modal_actualite.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        
-        const fermer = modal_actualite.querySelector('.modal-close');
-        fermer.addEventListener('click', () => {
-            modal_actualite.remove();
-            document.body.style.overflow = 'auto';
-        });
-        
-        modal_actualite.addEventListener('click', (e) => {
-            if (e.target === modal_actualite) {
-                modal_actualite.remove();
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-}
-
-// Navigation du carrousel d'actualités
-news_prev.addEventListener('click', () => {
-    if (position_actuelle_news > 0) {
-        position_actuelle_news--;
-        news_slider.style.transform = `translateX(-${position_actuelle_news * 370}px)`;
-    }
-});
-
-news_next.addEventListener('click', () => {
-    const largeur_carte = 370; // 350px + 20px gap
-    const largeur_visible = news_slider.parentElement.clientWidth - 120; // moins les boutons
-    const max_position = Math.max(0, Math.ceil((actualites_donnees.length * largeur_carte - largeur_visible) / largeur_carte));
-    
-    if (position_actuelle_news < max_position) {
-        position_actuelle_news++;
-        news_slider.style.transform = `translateX(-${position_actuelle_news * largeur_carte}px)`;
-    }
-});
-
-// Modal functionality
-parrainageBtn.addEventListener('click', () => {
-    parrainageModal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-});
-
-modalClose.addEventListener('click', () => {
-    parrainageModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === parrainageModal) {
-        parrainageModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// Form validation and submission
-const validateForm = (form) => {
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            field.style.borderColor = '#ef4444';
-            isValid = false;
-        } else {
-            field.style.borderColor = '#e5e7eb';
-        }
-    });
-    
-    // Email validation
-    const emailFields = form.querySelectorAll('input[type="email"]');
-    emailFields.forEach(field => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (field.value && !emailRegex.test(field.value)) {
-            field.style.borderColor = '#ef4444';
-            isValid = false;
-        }
-    });
-    
-    // Phone validation (basic)
-    const phoneFields = form.querySelectorAll('input[type="tel"]');
-    phoneFields.forEach(field => {
-        const phoneRegex = /^[\+]?[\d\s\-\(\)]{8,}$/;
-        if (field.value && !phoneRegex.test(field.value)) {
-            field.style.borderColor = '#ef4444';
-            isValid = false;
-        }
-    });
-    
-    return isValid;
-};
-
-const showMessage = (message, type = 'success') => {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${type}`;
-    messageDiv.textContent = message;
-    messageDiv.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        color: white;
-        font-weight: 500;
-        z-index: 3000;
-        animation: slideInRight 0.3s ease;
-        background: ${type === 'success' ? '#10b981' : '#ef4444'};
+        </div>
+        <div class="comment-content">
+            ${commentHtml}
+        </div>
+        <div class="comment-actions-bar">
+            <button class="comment-action" onclick="likeComment('${comment.id}')">
+                👍 ${comment.reactions.find(r => r.emoji.name === '+1')?.count || 0}
+            </button>
+            <button class="comment-action" onclick="replyToComment('${comment.id}')">
+                💬 Répondre
+            </button>
+            ${comment.reply_count > 0 ? `<button class="comment-action" onclick="loadReplies('${comment.id}')">Voir les réponses (${comment.reply_count})</button>` : ''}
+        </div>
     `;
     
-    document.body.appendChild(messageDiv);
-    
-    setTimeout(() => {
-        messageDiv.remove();
-    }, 5000);
-};
+    return commentDiv;
+}
 
-// Parrainage form submission
-parrainageForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+async function postComment() {
+    const input = document.getElementById('comment-input');
+    const imageInput = document.getElementById('comment-images');
     
-    if (!validateForm(parrainageForm)) {
-        showMessage('Veuillez remplir tous les champs requis correctement.', 'error');
+    if (!input.value.trim()) {
+        showNotification('Veuillez saisir votre commentaire.', 'error');
         return;
     }
     
-    const formData = new FormData(parrainageForm);
-    const data = Object.fromEntries(formData);
+    try {
+        let imageUrls = [];
+        
+        // Upload images if any
+        if (imageInput.files.length > 0) {
+            const files = Array.from(imageInput.files).slice(0, 4);
+            for (let file of files) {
+                const url = await window.websim.upload(file);
+                imageUrls.push(url);
+            }
+        }
+        
+        const result = await window.websim.postComment({
+            content: input.value,
+            images: imageUrls
+        });
+        
+        if (result.error) {
+            showNotification(result.error, 'error');
+            return;
+        }
+        
+        // Clear form
+        input.value = '';
+        imageInput.value = '';
+        document.getElementById('image-preview').innerHTML = '';
+        
+        showNotification('Commentaire publié avec succès !', 'success');
+        
+        // Reload comments
+        setTimeout(() => {
+            loadComments();
+        }, 1000);
+        
+    } catch (error) {
+        console.error('Error posting comment:', error);
+        showNotification('Erreur lors de la publication du commentaire.', 'error');
+    }
+}
+
+async function replyToComment(commentId) {
+    const content = prompt('Votre réponse :');
+    if (!content || !content.trim()) return;
     
-    // Simulate API call
-    const submitBtn = parrainageForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Envoi en cours...';
-    submitBtn.disabled = true;
-    
-    setTimeout(() => {
-        // Reset form and close modal
-        parrainageForm.reset();
-        parrainageModal.style.display = 'none';
+    try {
+        const result = await window.websim.postComment({
+            content: content,
+            parent_comment_id: commentId
+        });
+        
+        if (result.error) {
+            showNotification(result.error, 'error');
+            return;
+        }
+        
+        showNotification('Réponse publiée avec succès !', 'success');
+        
+        // Reload comments
+        setTimeout(() => {
+            loadComments();
+        }, 1000);
+        
+    } catch (error) {
+        console.error('Error posting reply:', error);
+        showNotification('Erreur lors de la publication de la réponse.', 'error');
+    }
+}
+
+function setupCommentsRealtime() {
+    if (window.websim && window.websim.addEventListener) {
+        window.websim.addEventListener('comment:created', (data) => {
+            console.log('New comment created:', data);
+            
+            // Add new comment to the beginning of the list
+            commentsData.unshift(data);
+            renderComments(commentsData);
+            
+            // Show notification
+            showNotification('Nouveau commentaire ajouté !', 'info');
+        });
+    }
+}
+
+function updateLoadMoreButton() {
+    const loadMoreBtn = document.getElementById('load-more-comments');
+    if (loadMoreBtn) {
+        if (commentsCursor) {
+            loadMoreBtn.style.display = 'block';
+            loadMoreBtn.textContent = isLoadingComments ? 'Chargement...' : 'Voir plus de commentaires';
+            loadMoreBtn.disabled = isLoadingComments;
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+}
+
+// Modal functions
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-        
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        
-        showMessage('Votre parrainage a été enregistré avec succès ! Nous vous contacterons bientôt.', 'success');
-        
-        // Update stats (simulate)
-        const supportStat = document.querySelector('[data-count="15000"]');
-        if (supportStat) {
-            const currentCount = parseInt(supportStat.textContent.replace(/,/g, ''));
-            supportStat.textContent = (currentCount + 1).toLocaleString();
-        }
-    }, 2000);
+    }
+}
+
+// Close modals when clicking outside
+window.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 });
 
-// Contact form submission
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// Smooth scrolling
+function setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Navbar scroll effect
+function setupNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
     
-    if (!validateForm(contactForm)) {
-        showMessage('Veuillez remplir tous les champs requis correctement.', 'error');
-        return;
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        }
+        
+        lastScrollY = currentScrollY;
+    });
+}
+
+// Notifications
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
     }
     
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#007bff'};
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 3000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        max-width: 300px;
+        font-weight: 500;
+    `;
+    notification.textContent = message;
     
-    // Simulate API call
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Envoi en cours...';
-    submitBtn.disabled = true;
+    document.body.appendChild(notification);
     
+    // Animate in
     setTimeout(() => {
-        contactForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        
-        showMessage('Votre message a été envoyé avec succès ! Nous vous répondrons rapidement.', 'success');
-    }, 2000);
-});
-
-// Enhanced scroll animations
-const handleScrollAnimations = () => {
-    const elements = document.querySelectorAll('.vision-card, .timeline-item, .news-card');
+        notification.style.transform = 'translateX(0)';
+    }, 100);
     
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 5000);
+}
+
+// Intersection Observer for animations
+const observeElements = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Observe cards and sections
+    document.querySelectorAll('.program-card, .news-card, .value-item, .objective-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
     });
 };
 
-// Initialize scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-    // Set initial states
-    document.querySelectorAll('.vision-card, .timeline-item, .news-card').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    handleScrollAnimations();
-    charger_actualites();
-});
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', observeElements);
 
-window.addEventListener('scroll', handleScrollAnimations);
+// Make functions globally available
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.postComment = postComment;
+window.replyToComment = replyToComment;
+window.likeComment = function(commentId) {
+    // Placeholder for like functionality
+    showNotification('Fonctionnalité à venir !', 'info');
+};
+window.loadReplies = function(commentId) {
+    // Placeholder for replies functionality
+    showNotification('Chargement des réponses...', 'info');
+};
 
-// Add CSS for slide-in animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    .nav-links.active {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-    
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-        }
-    }
-`;
-document.head.appendChild(style);
