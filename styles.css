@@ -704,6 +704,14 @@ img {
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 768px) {
+    .element-statistique {
+        padding: 15px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
 .element-statistique {
     background-color: var(--couleur-fond-clair);
     padding: 20px 30px;
