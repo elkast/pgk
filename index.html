@@ -2,526 +2,629 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Afrique qui ose avec Gnamien Konan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>PGK - </title>
     <link rel="stylesheet" href="styles.css">
-    <script type="importmap">
-    {
-        "imports": {
-            "marked": "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js",
-            "dompurify": "https://cdn.jsdelivr.net/npm/dompurify/dist/purify.es.min.js"
-        }
-    }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="barre-navigation">
-        <div class="conteneur-navigation">
-            <div class="logo-navigation">
-                <h2>L'Afrique qui ose</h2>
+    <!-- Header -->
+    <header class="header-principal">
+        <nav class="navigation">
+            <div class="conteneur-nav">
+                <div class="logo">
+                    <h1>L'afrique qui ose</h1>
+                </div>
+                <ul class="menu-principal">
+                    <li><a href="#accueil" class="lien-nav">Accueil</a></li>
+                    <li><a href="#apropos" class="lien-nav">À Propos</a></li>
+                    <li><a href="#valeurs" class="lien-nav">Nos Valeurs</a></li>
+                    <li><a href="#actualites" class="lien-nav">Actualités</a></li>
+                    <li><a href="#adhesion" class="lien-nav">Adhésion</a></li>
+                    <li><a href="#contact" class="lien-nav">Contact</a></li>
+                </ul>
+                <button class="bouton-menu-mobile" id="boutonMenuMobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <ul class="menu-navigation">
-                <li><a href="#accueil" class="lien-navigation">Accueil</a></li>
-                <li><a href="#apropos" class="lien-navigation">Qui est Gnamien?</a></li>
-                <li><a href="#mouvement" class="lien-navigation">Le Mouvement</a></li>
-                <li><a href="#programme" class="lien-navigation">Programme</a></li>
-                <li><a href="#parrainage" class="lien-navigation">Parrainages</a></li>
-                <li><a href="#contact" class="lien-navigation">Contact</a></li>
-            </ul>
-            <div class="actions-navigation">
-                <button class="bouton-secondaire bouton-petit" onclick="ouvrirModale('modale-adhesion')">Rejoindre</button>
-                <button class="bouton-primaire bouton-petit" onclick="ouvrirModale('modale-don')">Faire un don</button>
-            </div>
-            <div class="hamburger" >
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Section Héro -->
-    <section id="accueil" class="hero">
-        <div class="arriere-plan-hero">
-            <div class="superposition-hero"></div>
-        </div>
-        <div class="contenu-hero">
-            <div class="conteneur">
-                <div class="texte-hero">
-                    <h1 class="titre-hero">L'Afrique qui ose avec <span class="mise-en-evidence">Gnamien Konan</span></h1>
-                    <p class="sous-titre-hero">Osons une Afrique intègre, libre et prospère</p>
-                    <div class="citation-hero">
-                        <blockquote>
-                            " L' Afrique Qui Ose , c'est toi, c'est moi , c'est maintenant"
-                        </blockquote>
-                    </div>
-                    <div class="actions-hero" >
-                        <button class="bouton-primaire bouton-grand" onclick='window.location.href="https://forms.gle/6NpLEP1VKE47TMXF7"'>
-                            <span>Je parraine Gnamien Konan</span>
-                        </button>
-                        <button class="bouton-secondaire bouton-grand" onclick="ouvrirModale('modale-adhesion')">
-                            <span>Je rejoins le mouvement</span>
-                        </button>
-                    </div>
+    <section id="accueil" class="section-hero">
+        <div class="conteneur-hero">
+            <div class="contenu-hero">
+                <h1 class="titre-hero">L'afrique qui ose</h1>
+                <p class="sous-titre-hero">Pour une gouvernance transparente, responsable et innovante en cote d'ivoire</p>
+                <div class="boutons-hero">
+                    <a href="#adhesion" class="bouton-primaire">Rejoignez-nous</a>
+                    <a href="#apropos" class="bouton-secondaire">En savoir plus</a>
                 </div>
+            </div>
+            <div class="image-hero">
+                <img src="img/gnamien-portrait.png" alt="Portrait du leader" class="portrait-leader">
             </div>
         </div>
     </section>
 
     <!-- Section À Propos -->
-    <section id="apropos" class="a-propos">
+    <section id="apropos" class="section-apropos">
         <div class="conteneur">
-            <div class="entete-section">
-                <h2>Qui est Gnamien Konan ?</h2>
-                <p>Un homme d'intégrité et de conviction au service de l'Afrique</p>
+            <div class="titre-section">
+                <h2>À Propos du PGK</h2>
+                <p>Notre vision pour un Cameroun meilleur</p>
             </div>
-            <div class="contenu-a-propos">
-                <div class="image-a-propos">
-                    <div class="emplacement-image">
-                        <img src="img/gnamien-portrait.png" alt="Portrait de Gnamien Konan">
-                    </div>
+            <div class="grille-apropos">
+                <div class="texte-apropos">
+                    <h3>Notre Mission</h3>
+                    <p>Le Parti de Gouvernance Kamerunaise (PGK) s'engage à promouvoir une gouvernance transparente, responsable et inclusive au Cameroun. Nous croyons en un leadership qui place les citoyens au cœur de toutes les décisions politiques.</p>
+                    <ul class="liste-mission">
+                        <li>Promouvoir la transparence dans la gestion publique</li>
+                        <li>Lutter contre la corruption sous toutes ses formes</li>
+                        <li>Favoriser l'innovation et le développement durable</li>
+                        <li>Renforcer la justice et l'État de droit</li>
+                    </ul>
                 </div>
-                <div class="texte-a-propos">
-                    <div class="bio">
-                        <p>Ancien ministre et directeur des douanes, Gnamien Konan s'est distingué comme un homme politique d'exception, reconnu pour son intégrité sans faille et son courage à défier la corruption systémique.</p>
-                        <p>Fondateur visionnaire du parti "La Nouvelle Côte d'Ivoire", il incarne le renouveau politique et une gouvernance africaine moderne, transparente et responsable.</p>
-                    </div>
-                    <div class="valeurs">
-                        <h3>Ses valeurs fondamentales</h3>
-                        <div class="grille-valeurs">
-                            <div class="element-valeur">
-                                <div class="icone-valeur">🏛️</div>
-                                <h4>Intégrité</h4>
-                                <p>Une gestion transparente et honnête</p>
-                            </div>
-                            <div class="element-valeur">
-                                <div class="icone-valeur">💪</div>
-                                <h4>Courage</h4>
-                                <p>L'audace d'agir pour le changement</p>
-                            </div>
-                            <div class="element-valeur">
-                                <div class="icone-valeur">🇨🇮</div>
-                                <h4>Patriotisme</h4>
-                                <p>L'amour et le dévouement pour son pays</p>
-                            </div>
-                            <div class="element-valeur">
-                                <div class="icone-valeur">🎓</div>
-                                <h4>Compétence</h4>
-                                <p>L'excellence au service du développement</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="combat">
-                        <h3>Son combat pour l'Afrique</h3>
-                        <p class="texte-combat">Pour une Afrique libre, réconciliée, efficace et souveraine, capable de prendre en main son destin et d'assurer la prospérité de ses populations.</p>
-                    </div>
+                <div class="image-apropos">
+                    <img src="innovation.jpg" alt="Innovation et développement" class="image-pleine">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Mouvement -->
-    <section id="mouvement" class="mouvement">
+    <!-- Section Nos Valeurs -->
+    <section id="valeurs" class="section-valeurs">
         <div class="conteneur">
-            <div class="entete-section">
-                <h2>Le Mouvement "L'Afrique qui ose"</h2>
-                <p>Une vision moderne pour l'Afrique de demain</p>
+            <div class="titre-section">
+                <h2>Nos Valeurs Fondamentales</h2>
+                <p>Les piliers de notre engagement politique</p>
             </div>
-            <div class="contenu-mouvement">
-                <div class="carte-vision">
-                    <h3>Notre vision</h3>
-                    <p>Une Afrique qui croit en elle, qui agit avec conscience, et qui ose sortir du mimétisme, de la corruption et du clientélisme pour construire son propre modèle de développement durable.</p>
-                </div>
-                <div class="objectifs">
-                    <h3>Nos objectifs</h3>
-                    <div class="liste-objectifs">
-                        <div class="element-objectif">
-                            <div class="icone-objectif">🏗️</div>
-                            <h4>Alternative politique</h4>
-                            <p>Bâtir une alternative politique forte, citoyenne et innovante</p>
-                        </div>
-                        <div class="element-objectif">
-                            <div class="icone-objectif">🔍</div>
-                            <h4>Bonne gouvernance</h4>
-                            <p>Promouvoir une gouvernance transparente, efficace et participative</p>
-                        </div>
-                        <div class="element-objectif">
-                            <div class="icone-objectif">🤝</div>
-                            <h4>Union africaine</h4>
-                            <p>Rassembler toutes les forces africaines progressistes pour un changement positif</p>
-                        </div>
-                        <div class="element-objectif">
-                            <div class="icone-objectif">📈</div>
-                            <h4>Développement durable</h4>
-                            <p>Mettre en œuvre des solutions innovantes pour un développement inclusif</p>
-                        </div>
+            <div class="grille-valeurs">
+                <div class="carte-valeur">
+                    <div class="icone-valeur">
+                        <img src="img/transaparence.png" alt="Transparence" class="icone-img">
                     </div>
+                    <h3>Transparence</h3>
+                    <p>Une gouvernance ouverte et transparente où chaque action est justifiée et expliquée aux citoyens.</p>
                 </div>
-                <div class="section-valeurs">
-                    <h3>Nos valeurs</h3>
-                    <div class="curseur-valeurs">
-                        <div class="piste-valeurs">
-                            <div class="diapositive-valeur">
-                                <img src="img/corruption.png" alt="Lutte contre la corruption">
-                                <div class="contenu-diapositive">
-                                    <div class="icone-valeur">🚫</div>
-                                    <h4>Lutte contre la corruption</h4>
-                                    <p>Pour une gestion transparente et efficace des ressources publiques</p>
-                                </div>
-                            </div>
-                            <div class="diapositive-valeur">
-                                <img src="img/Justice.jpg" alt="Justice">
-                                <div class="contenu-diapositive">
-                                    <div class="icone-valeur">⚖️</div>
-                                    <h4>Justice équitable</h4>
-                                    <p>Garantir l'équité et les droits fondamentaux pour tous</p>
-                                </div>
-                            </div>
-                            <div class="diapositive-valeur">
-                                <img src="img/transaparence.png" alt="Transparence">
-                                <div class="contenu-diapositive">
-                                    <div class="icone-valeur">🔎</div>
-                                    <h4>Transparence totale</h4>
-                                    <p>Une gouvernance claire, ouverte et responsable</p>
-                                </div>
-                            </div>
-                            <div class="diapositive-valeur">
-                                <img src="img/responsable.png" alt="Responsabilité">
-                                <div class="contenu-diapositive">
-                                    <div class="icone-valeur">🎯</div>
-                                    <h4>Responsabilité citoyenne</h4>
-                                    <p>Un engagement fort et un devoir sacré envers la nation</p>
-                                </div>
-                            </div>
-                            <div class="diapositive-valeur">
-                                <img src="img/innovation.jpg" alt="Innovation">
-                                <div class="contenu-diapositive">
-                                    <div class="icone-valeur">💡</div>
-                                    <h4>Innovation africaine</h4>
-                                    <p>Construire un avenir moderne, dynamique et authentiquement africain</p>
-                                </div>
-                            </div>
-                            <!-- Dupliquer les slides pour un défilement continu sans espace vide -->
-                            
-    
-                        </div>
+                <div class="carte-valeur">
+                    <div class="icone-valeur">
+                        <img src="img/responsable.png" alt="Gouvernance Responsable" class="icone-img">
                     </div>
+                    <h3>Responsabilité</h3>
+                    <p>Des leaders qui rendent compte de leurs actions et assument leurs responsabilités envers le peuple.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Programme -->
-    <section id="programme" class="programme">
-        <div class="conteneur">
-            <div class="entete-section">
-                <h2>Le Programme</h2>
-                <p>Six piliers pour transformer l'Afrique</p>
-            </div>
-            <div class="grille-programme">
-                <div class="carte-programme">
-                    <div class="icone-programme">🎓</div>
-                    <h3>Éducation & emploi pour les jeunes</h3>
-                    <p>Réforme complète du système éducatif, formation professionnelle adaptée au marché, soutien actif à l'entrepreneuriat jeune.</p>
-                </div>
-                <div class="carte-programme">
-                    <div class="icone-programme">🏛️</div>
-                    <h3>Bonne gouvernance & lutte contre la corruption</h3>
-                    <p>Transparence budgétaire totale, justice véritablement indépendante, numérisation complète des services publics.</p>
-                </div>
-                <div class="carte-programme">
-                    <div class="icone-programme">🏭</div>
-                    <h3>Économie productive & souveraineté locale</h3>
-                    <p>Modernisation de l'agriculture, transformation industrielle locale, accompagnement renforcé des PME.</p>
-                </div>
-                <div class="carte-programme">
-                    <div class="icone-programme">🤝</div>
-                    <h3>Réconciliation & justice sociale</h3>
-                    <p>Dialogue national inclusif, vérité et réparation sur les crises passées, réforme foncière équitable.</p>
-                </div>
-                <div class="carte-programme">
-                    <div class="icone-programme">🌱</div>
-                    <h3>Transition énergétique & écologie</h3>
-                    <p>Développement massif du solaire, programme de reforestation, gestion durable des ressources naturelles.</p>
-                </div>
-                <div class="carte-programme">
-                    <div class="icone-programme">🌍</div>
-                    <h3>Intégration régionale & panafricanisme</h3>
-                    <p>Renforcement de la coopération économique sud-sud, libre circulation des personnes et des biens, diplomatie active de développement.</p>
-                </div>
-            </div>
-            <div class="telechargement-programme">
-                <button class="bouton-primaire">
-                    <span class="icone-bouton">📥</span>
-                    Télécharger le programme complet (PDF)
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Parrainage -->
-    <section id="parrainage" class="parrainage">
-        <div class="conteneur">
-            <div class="entete-section">
-                <h2>Je parraine Gnamien Konan</h2>
-                <p>Votre parrainage peut changer l'histoire</p>
-            </div>
-            <div class="contenu-parrainage">
-                <div class="informations-parrainage">
-                    <h3>Pourquoi parrainer Gnamien Konan ?</h3>
-                    <p>Votre parrainage est crucial pour permettre à une candidature porteuse d'espoir et de changement d'être présente sur le bulletin de vote. Ensemble, nous pouvons écrire une nouvelle page de notre histoire.</p>
-                    <div class="statistiques-parrainage">
-                        <div class="element-statistique">
-                            <div class="nombre-statistique" id="compteur-parrainages">0</div>
-                            <div class="libelle-statistique">Parrainages reçus</div>
-                        </div>
-                        <div class="element-statistique">
-                            <div class="nombre-statistique">150.000</div>
-                            <div class="libelle-statistique">Parrainages nécessaires</div>
-                        </div>
+                <div class="carte-valeur">
+                    <div class="icone-valeur">
+                        <img src="img/Justice.jpg" alt="Justice" class="icone-img">
                     </div>
-                    
-                    <div class="action-parrainage">
-                        <a href="https://forms.gle/GQfbt3NN5NgSgcFM7" target="_blank" class="bouton-primaire bouton-parrainage">
-                            <span class="icone-bouton">✨</span>
-                            JE PARRAINE GNAMIEN KONAN MAINTENANT
-                            <span class="icone-bouton">✨</span>
-                        </a>
+                    <h3>Justice</h3>
+                    <p>Un système judiciaire indépendant et équitable qui protège les droits de tous les citoyens.</p>
+                </div>
+                <div class="carte-valeur">
+                    <div class="icone-valeur">
+                        <img src="img/corruption.png" alt="Lutte contre la corruption" class="icone-img">
                     </div>
+                    <h3>Intégrité</h3>
+                    <p>Zéro tolérance pour la corruption et promotion de l'éthique dans toutes les institutions.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Actualités -->
-    <section class="actualites">
+    <section id="actualites" class="section-actualites">
         <div class="conteneur">
-            <div class="entete-section">
-                <h2>Actualités & Médias</h2>
-                <p>Suivez l'évolution du mouvement</p>
+            <div class="titre-section">
+                <h2>Dernières Actualités</h2>
+                <p>Restez informés de nos dernières actions et annonces</p>
             </div>
             <div class="grille-actualites">
-                <div class="carte-actualite">
-                    <div class="image-actualite"></div>
-                    <div class="contenu-actualite">
-                        <div class="date-actualite">15 Janvier 2025</div>
-                        <h3>Lancement officiel du mouvement</h3>
-                        <p>Gnamien Konan lance officiellement "L'Afrique qui ose" devant plus de 2000 personnes à Abidjan.</p>
+                <article class="carte-actualite">
+                    <div class="image-actualite">
+                        <img src="img/news1.webp" alt="Actualité 1" class="image-pleine">
                     </div>
-                </div>
-                <div class="carte-actualite">
-                    <div class="image-actualite"></div>
                     <div class="contenu-actualite">
-                        <div class="date-actualite">12 Janvier 2025</div>
-                        <h3>Première tournée nationale</h3>
-                        <p>Début de la tournée de sensibilisation dans les 19 régions de la Côte d'Ivoire.</p>
+                        <span class="date-actualite">15 Décembre 2024</span>
+                        <h3>Lancement de notre campagne pour la transparence</h3>
+                        <p>Le PGK lance une nouvelle initiative pour promouvoir la transparence dans la gestion des finances publiques...</p>
+                        <a href="#" class="lien-lire-plus">Lire la suite</a>
                     </div>
-                </div>
-                <div class="carte-actualite">
-                    <div class="image-actualite"></div>
+                </article>
+                <article class="carte-actualite">
+                    <div class="image-actualite">
+                        <img src="img/news2.webp" alt="Actualité 2" class="image-pleine">
+                    </div>
                     <div class="contenu-actualite">
-                        <div class="date-actualite">10 Janvier 2025</div>
-                        <h3>Rencontre avec les jeunes</h3>
-                        <p>Forum de dialogue avec la jeunesse ivoirienne sur l'avenir du pays.</p>
+                        <span class="date-actualite">10 Décembre 2024</span>
+                        <h3>Rencontre avec les jeunes leaders</h3>
+                        <p>Une séance d'échange constructive avec les jeunes leaders de différentes régions du pays...</p>
+                        <a href="#" class="lien-lire-plus">Lire la suite</a>
                     </div>
+                </article>
+                <article class="carte-actualite">
+                    <div class="image-actualite">
+                        <img src="img/news3.webp" alt="Actualité 3" class="image-pleine">
+                    </div>
+                    <div class="contenu-actualite">
+                        <span class="date-actualite">5 Décembre 2024</span>
+                        <h3>Programme de développement rural</h3>
+                        <p>Présentation de notre programme ambitieux pour le développement des zones rurales...</p>
+                        <a href="#" class="lien-lire-plus">Lire la suite</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Adhésion -->
+    <section id="adhesion" class="section-adhesion">
+        <div class="conteneur">
+            <div class="titre-section">
+                <h2>Rejoignez le Mouvement</h2>
+                <p>Devenez membre de l'Afrique qui ose et participez au changement</p>
+            </div>
+            <div class="conteneur-adhesion">
+                <div class="info-adhesion">
+                    <h3>Pourquoi nous rejoindre ?</h3>
+                    <ul class="liste-avantages">
+                        <li><i class="fas fa-check"></i> Participez aux décisions importantes du parti</li>
+                        <li><i class="fas fa-check"></i> Accédez aux formations et ateliers exclusifs</li>
+                        <li><i class="fas fa-check"></i> Contribuez directement au changement politique</li>
+                        <li><i class="fas fa-check"></i> Rejoignez une communauté engagée</li>
+                    </ul>
                 </div>
+                <form class="formulaire-adhesion" id="formulaireAdhesion">
+                    <div class="groupe-champs">
+                        <div class="champ">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="champ">
+                            <label for="prenoms">Prénoms *</label>
+                            <input type="text" id="prenoms" name="prenoms" required>
+                        </div>
+                    </div>
+                    <div class="groupe-champs">
+                        <div class="champ">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="champ">
+                            <label for="telephone">Téléphone *</label>
+                            <input type="tel" id="telephone" name="telephone" pattern="(\+225|00225)?[0-9]{10}" placeholder="+225" required>
+                        </div>
+                    </div>
+                    <div class="groupe-champs">
+                        <div class="champ">
+                            <label for="commune">Commune *</label>
+                            <select id="commune" name="commune" required>
+                                <option value="">Sélectionnez votre commune</option>
+                                <option value="abobo">Abobo</option>
+                                <option value="adjame">Adjamé</option>
+                                <option value="attecoube">Attécoubé</option>
+                                <option value="cocody">Cocody</option>
+                                <option value="koumassi">Koumassi</option>
+                                <option value="marcory">Marcory</option>
+                                <option value="plateau">Plateau</option>
+                                <option value="port-bouet">Port-Bouët</option>
+                                <option value="treichville">Treichville</option>
+                                <option value="yopougon">Yopougon</option>
+                                <option value="yamoussoukro">Yamoussoukro</option>
+                                <option value="bouake">Bouaké</option>
+                                <option value="daloa">Daloa</option>
+                                <option value="korhogo">Korhogo</option>
+                                <option value="man">Man</option>
+                                <option value="san-pedro">San-Pédro</option>
+                                <option value="divo">Divo</option>
+                                <option value="gagnoa">Gagnoa</option>
+                                <option value="abengourou">Abengourou</option>
+                                <option value="anyama">Anyama</option>
+                                <option value="grand-bassam">Grand-Bassam</option>
+                                <option value="dabou">Dabou</option>
+                                <option value="boundiali">Boundiali</option>
+                                <option value="dimbokro">Dimbokro</option>
+                                <option value="ferkessedougou">Ferkessédougou</option>
+                                <option value="guiglo">Guiglo</option>
+                                <option value="odienne">Odiénné</option>
+                                <option value="seguela">Séguéla</option>
+                                <option value="soubre">Soubré</option>
+                                <option value="toumodi">Toumodi</option>
+                            </select>
+                        </div>
+                        <div class="champ">
+                            <label for="age">Âge *</label>
+                            <input type="number" id="age" name="age" min="18" required>
+                        </div>
+                    </div>
+                    <div class="groupe-champs">
+                        <div class="champ">
+                            <label for="numero_carte_electeur">Numéro de carte d'électeur *</label>
+                            <input type="text" id="numero_carte_electeur" name="numero_carte_electeur" placeholder="Ex: CI-2020-0123456789" pattern="CI-[0-9]{4}-[0-9]{10}" required>
+                        </div>
+                        <div class="champ">
+                            <label for="cni">Copie CNI * (ex: photo ou scan de votre CNI)</label>
+                            <input type="file" id="cni" name="cni" accept="image/*,.pdf" required>
+                        </div>
+                    </div>
+                    <div class="groupe-champs">
+                        <div class="champ">
+                            <label for="raison_soutien">Raison du soutien *</label>
+                            <select id="raison_soutien" name="raison_soutien" required>
+                                <option value="">Sélectionnez une raison</option>
+                                <option value="Pour son franc-parler">Pour son franc-parler</option>
+                                <option value="Pour sa vision d'une Afrique responsable">Pour sa vision d'une Afrique responsable</option>
+                                <option value="Parce qu'il refuse la corruption">Parce qu'il refuse la corruption</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="champ" id="autre_raison_container" style="display:none;">
+                            <label for="raison_soutien_autre">Précisez votre raison</label>
+                            <textarea id="raison_soutien_autre" name="raison_soutien_autre"></textarea>
+                        </div>
+                    </div>
+                    <div class="champ">
+                        <label for="benevole">
+                            <input type="checkbox" id="benevole" name="benevole">
+                            Je souhaite devenir bénévole
+                        </label>
+                    </div>
+                    <div class="champ">
+                        <label for="region">Région *</label>
+                        <select id="region" name="region" required>
+                            <option value="">Sélectionnez votre région</option>
+                            <option value="agneby-tiassa">Agnéby-Tiassa</option>
+                            <option value="bafing">Bafing</option>
+                            <option value="bagoue">Bagoué</option>
+                            <option value="belier">Bélier</option>
+                            <option value="bere">Béré</option>
+                            <option value="bounkani">Bounkani</option>
+                            <option value="cavally">Cavally</option>
+                            <option value="gbeke">Gbêkê</option>
+                            <option value="gbokle">Gbôklé</option>
+                            <option value="goh">Gôh</option>
+                            <option value="grands-ponts">Grands-Ponts</option>
+                            <option value="guemon">Guémon</option>
+                            <option value="hambol">Hambol</option>
+                            <option value="haut-sassandra">Haut-Sassandra</option>
+                            <option value="iffou">Iffou</option>
+                            <option value="indenie-djuablin">Indénié-Djuablin</option>
+                            <option value="kabadougou">Kabadougou</option>
+                            <option value="la-me">La Mé</option>
+                            <option value="loh-djiboua">Lôh-Djiboua</option>
+                            <option value="marahoue">Marahoué</option>
+                            <option value="moronou">Moronou</option>
+                            <option value="nawa">Nawa</option>
+                            <option value="n-zi">N'Zi</option>
+                            <option value="poro">Poro</option>
+                            <option value="san-pedro">San-Pédro</option>
+                            <option value="sud-comoe">Sud-Comoé</option>
+                            <option value="tchologo">Tchologo</option>
+                            <option value="tonkpi">Tonkpi</option>
+                            <option value="worodougou">Worodougou</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                        </select>
+                    </div>
+                    <div class="champ">
+                                            <label for="profession">Profession *</label>
+                                            <select id="profession" name="profession" required>
+                                                <option value="">Sélectionnez votre profession</option>
+                                                <option value="agriculteur">Agriculteur</option>
+                                                <option value="artisan">Artisan</option>
+                                                <option value="avocat">Avocat</option>
+                                                <option value="banquier">Banquier</option>
+                                                <option value="chauffeur">Chauffeur</option>
+                                                <option value="commercant">Commerçant</option>
+                                                <option value="comptable">Comptable</option>
+                                                <option value="consultant">Consultant</option>
+                                                <option value="dentiste">Dentiste</option>
+                                                <option value="developpeur">Développeur</option>
+                                                <option value="enseignant">Enseignant</option>
+                                                <option value="entrepreneur">Entrepreneur</option>
+                                                <option value="etudiant">Étudiant</option>
+                                                <option value="fonctionnaire">Fonctionnaire</option>
+                                                <option value="infirmier">Infirmier</option>
+                                                <option value="ingenieur">Ingénieur</option>
+                                                <option value="journaliste">Journaliste</option>
+                                                <option value="medecin">Médecin</option>
+                                                <option value="pharmacien">Pharmacien</option>
+                                                <option value="policier">Policier</option>
+                                                <option value="restaurateur">Restaurateur</option>
+                                                <option value="retraite">Retraité</option>
+                                                <option value="vendeur">Vendeur</option>
+                                                <option value="autre">Autre</option>
+                                            </select>
+                    </div>
+                    
+                    <!-- Section Photo -->
+                    <div class="section-photo">
+                        <label class="label-photo">Photo de profil *</label>
+                        <div class="options-photo">
+                            <div class="option-photo">
+                                <input type="radio" id="prendre-photo" name="type-photo" value="camera">
+                                <label for="prendre-photo" class="bouton-photo">
+                                    <i class="fas fa-camera"></i>
+                                    Prendre une photo
+                                </label>
+                            </div>
+                            <div class="option-photo">
+                                <input type="radio" id="telecharger-photo" name="type-photo" value="upload">
+                                <label for="telecharger-photo" class="bouton-photo">
+                                    <i class="fas fa-upload"></i>
+                                    Télécharger une photo
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Caméra -->
+                        <div id="section-camera" class="section-camera" style="display: none;">
+                            <video id="video-camera" class="video-camera" autoplay></video>
+                            <canvas id="canvas-photo" class="canvas-photo" style="display: none;"></canvas>
+                            <div class="controles-camera">
+                                <button type="button" id="bouton-photo" class="bouton-prendre-photo">
+                                    <i class="fas fa-camera"></i> Prendre la photo
+                                </button>
+                                <button type="button" id="bouton-refaire" class="bouton-refaire" style="display: none;">
+                                    Refaire
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Upload -->
+                        <div id="section-upload" class="section-upload" style="display: none;">
+                            <input type="file" id="fichier-photo" accept="image/*" class="input-fichier">
+                            <label for="fichier-photo" class="zone-depot">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Cliquez pour sélectionner ou glissez votre photo ici</span>
+                                <small>Formats acceptés: JPG, PNG, GIF (max 5MB)</small>
+                            </label>
+                        </div>
+                        
+                        <!-- Aperçu photo -->
+                        <div id="apercu-photo" class="apercu-photo" style="display: none;">
+                            <img id="image-apercu" alt="Aperçu de votre photo">
+                        </div>
+                    </div>
+                    
+                    <div class="champ">
+                        <label for="motivation">Motivation (optionnel)</label>
+                        <textarea id="motivation" name="motivation" rows="4" placeholder="Partagez-nous votre motivation pour rejoindre le mouvement l'afrique qui ose..."></textarea>
+                    </div>
+                    
+                    <!-- Section Paiement -->
+                    <div class="section-paiement">
+                        <h3>Cotisation d'adhésion</h3>
+                        <div class="info-cotisation">
+                            <p>Montant: <strong>25 000 FCFA</strong></p>
+                            <small>Cette cotisation nous aide à financer nos activités et campagnes</small>
+                        </div>
+                        
+                        <div class="methodes-paiement">
+                            <h4>Choisissez votre méthode de paiement</h4>
+                            <div class="options-paiement">
+                                <div class="option-paiement">
+                                    <input type="radio" id="mobile-money" name="methode-paiement" value="mobile-money">
+                                    <label for="mobile-money" class="carte-paiement">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Mobile Money</span>
+                                        <small>MTN, Orange, Camtel</small>
+                                    </label>
+                                </div>
+                                <div class="option-paiement">
+                                    <input type="radio" id="carte-bancaire" name="methode-paiement" value="carte">
+                                    <label for="carte-bancaire" class="carte-paiement">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Carte Bancaire</span>
+                                        <small>Visa, Mastercard</small>
+                                    </label>
+                                </div>
+                                <div class="option-paiement">
+                                    <input type="radio" id="virement" name="methode-paiement" value="virement">
+                                    <label for="virement" class="carte-paiement">
+                                        <i class="fas fa-university"></i>
+                                        <span>Virement</span>
+                                        <small>Banque traditionnelle</small>
+                                    </label>
+                                </div>
+                                <div class="option-paiement">
+                                    <input type="radio" id="paypal" name="methode-paiement" value="paypal">
+                                    <label for="paypal" class="carte-paiement">
+                                        <i class="fab fa-paypal"></i>
+                                        <span>PayPal</span>
+                                        <small>Paiement international</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Détails de paiement -->
+                        <div id="details-paiement" class="details-paiement" style="display: none;">
+                            <!-- Mobile Money -->
+                            <div id="form-mobile-money" class="form-paiement" style="display: none;">
+                                <div class="champ">
+                                    <label for="operateur">Opérateur</label>
+                                    <select id="operateur" name="operateur">
+                                        <option value="">Sélectionnez votre opérateur</option>
+                                        <option value="mtn">MTN Mobile Money</option>
+                                        <option value="orange">Orange Money</option>
+                                        <option value="camtel">Camtel Money</option>
+                                    </select>
+                                </div>
+                                <div class="champ">
+                                    <label for="numero-mobile">Numéro de téléphone</label>
+                                    <input type="tel" id="numero-mobile" name="numero-mobile" placeholder="6XXXXXXXX">
+                                </div>
+                            </div>
+                            
+                            <!-- Carte bancaire -->
+                            <div id="form-carte" class="form-paiement" style="display: none;">
+                                <div class="champ">
+                                    <label for="numero-carte">Numéro de carte</label>
+                                    <input type="text" id="numero-carte" name="numero-carte" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="groupe-champs">
+                                    <div class="champ">
+                                        <label for="expiration">MM/AA</label>
+                                        <input type="text" id="expiration" name="expiration" placeholder="12/25">
+                                    </div>
+                                    <div class="champ">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="champ">
+                                    <label for="nom-carte">Nom sur la carte</label>
+                                    <input type="text" id="nom-carte" name="nom-carte" placeholder="Jean Dupont">
+                                </div>
+                            </div>
+                            
+                            <!-- Virement -->
+                            <div id="form-virement" class="form-paiement" style="display: none;">
+                                <div class="info-virement">
+                                    <h4>Informations de virement</h4>
+                                    <div class="details-compte">
+                                        <p><strong>Bénéficiaire:</strong> Parti de Gouvernance Kamerunaise</p>
+                                        <p><strong>Banque:</strong> Afriland First Bank</p>
+                                        <p><strong>Numéro de compte:</strong> 10033-12345-67890</p>
+                                        <p><strong>Code SWIFT:</strong> CCBACMCX</p>
+                                    </div>
+                                    <small>Après le virement, veuillez envoyer le justificatif par email à tresorier@pgk-cameroun.org</small>
+                                </div>
+                            </div>
+                            
+                            <!-- PayPal -->
+                            <div id="form-paypal" class="form-paiement" style="display: none;">
+                                <div class="info-paypal">
+                                    <p>Vous serez redirigé vers PayPal pour finaliser votre paiement.</p>
+                                    <div class="champ">
+                                        <label for="email-paypal">Email PayPal</label>
+                                        <input type="email" id="email-paypal" name="email-paypal" placeholder="votre@email.com">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="champ-checkbox">
+                        <input type="checkbox" id="accepter-conditions" name="accepter-conditions" required>
+                        <label for="accepter-conditions">
+                            J'accepte les <a href="mentions-legales.html" target="_blank">conditions d'utilisation</a> et la <a href="politique-confidentialite.html" target="_blank">politique de confidentialité</a> *
+                        </label>
+                    </div>
+                    
+                    <div class="champ-checkbox">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Je souhaite recevoir la newsletter du PGK</label>
+                    </div>
+                    
+                    <button type="submit" class="bouton-soumettre">
+                        <i class="fas fa-user-plus"></i>
+                        Finaliser mon adhésion
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Section Contact -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section-contact">
         <div class="conteneur">
-            <div class="entete-section">
-                <h2>Contact</h2>
-                <p>Restons en contact pour bâtir ensemble l'Afrique de demain</p>
+            <div class="titre-section">
+                <h2>Contactez-nous</h2>
+                <p>Nous sommes à votre écoute</p>
             </div>
-            <div class="contenu-contact">
-                <div class="informations-contact">
-                    <div class="element-contact">
-                        <div class="icone-contact">📍</div>
-                        <div>
-                            <h4>Adresse</h4>
-                            <p>Abidjan Cocody - Siège national du mouvement</p>
-                        </div>
+            <div class="grille-contact">
+                <div class="info-contact">
+                    <div class="carte-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Adresse</h3>
+                        <p>Cocody<br> Abidjan, Côte d'Ivoire</p>
                     </div>
-                    <div class="element-contact">
-                        <div class="icone-contact">📞</div>
-                        <div>
-                            <h4>Téléphone</h4>
-                            <p>+225 07 07 07 07 07</p>
-                        </div>
+                    <div class="carte-contact">
+                        <i class="fas fa-phone"></i>
+                        <h3>Téléphone</h3>
+                        <p>+225 XX XX XX</p>
                     </div>
-                    <div class="element-contact">
-                        <div class="icone-contact">✉️</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contact@lafriquequiose.com</p>
-                        </div>
+                    <div class="carte-contact">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>contact@pgk-cote-ivoire.org</p>
                     </div>
                 </div>
-                <div class="reseaux-sociaux">
-                    <h3>Suivez-nous</h3>
-                    <div class="liens-sociaux">
-                        <a href="https://www.facebook.com/share/1C3fU41M5t/" class="lien-social" target="_blank">
-                            <img src="facebook-icon.png" alt="Facebook">
-                        </a>
-                        <a href="https://x.com/afrose_qui72055?t=oO5FLRHt5FsYWZ0-xPJqlA&s=08" class="lien-social" target="_blank">
-                            <img src="x-icon.png" alt="X (Twitter)">
-                        </a>
-                        <a href="https://www.instagram.com/afriquequiose?igsh=YzljYTk1ODg3Zg==" class="lien-social" target="_blank">
-                            <img src="instagram-icon.png" alt="Instagram">
-                        </a>
-                        <a href="https://www.tiktok.com/@afrique.qui.ose?_t=ZM-8xc0lfmW2MA&_r=1" class="lien-social" target="_blank">
-                            <img src="tiktok-icon.png" alt="TikTok">
-                        </a>
+                <form class="formulaire-contact">
+                    <div class="groupe-champs">
+                        <div class="champ">
+                            <label for="nom-contact">Nom</label>
+                            <input type="text" id="nom-contact" name="nom-contact" required>
+                        </div>
+                        <div class="champ">
+                            <label for="email-contact">Email</label>
+                            <input type="email" id="email-contact" name="email-contact" required>
+                        </div>
                     </div>
-                </div>
+                    <div class="champ">
+                        <label for="sujet">Sujet</label>
+                        <input type="text" id="sujet" name="sujet" required>
+                    </div>
+                    <div class="champ">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="bouton-soumettre">Envoyer le message</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Pied de page -->
-    <footer class="pied-de-page">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="conteneur">
-            <div class="contenu-pied-de-page">
-                <div class="citation-pied-de-page">
-                    <blockquote>L'Afrique qui ose avec Gnamien Konan © 2025. Tous droits réservés.</blockquote>
+            <div class="grille-footer">
+                <div class="colonne-footer">
+                    <h3>L'afrique qui ose</h3>
+                    <p>L'Afrique qui ose ,pour une gouvernance transparente responsable et prospère.</p>
+                    <div class="reseaux-sociaux">
+                        <a href="https://www.facebook.com/share/1C3fU41M5t/" class="lien-social"><img src="facebook.png" alt="Facebook"></a>
+                        <a href="https://x.com/afrose_qui72055?t=6qSDkgOuvakngsSEWVHmpw&s=08" class="lien-social"><img src="x-icon.png" alt="Twitter"></a>
+                        <a href="https://www.instagram.com/afriquequiose?igsh=YzljYTk1ODg3Zg==" class="lien-social"><img src="instagram-icon.png" alt="Instagram"></a>
+                        <a href="https://www.tiktok.com/@afrique.qui.ose?_t=ZM-8xc0lfmW2MA&_r=1" class="lien-social"><img src="tiktok-icon.png" alt="TikTok"></a>
+                    </div>
                 </div>
-                <div class="liens-pied-de-page">
-                    <a href="mentions-legales.html">Mentions légales</a>
-                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                <div class="colonne-footer">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#valeurs">Nos Valeurs</a></li>
+                        <li><a href="#actualites">Actualités</a></li>
+                    </ul>
                 </div>
+                <div class="colonne-footer">
+                    <h4>Engagement</h4>
+                    <ul>
+                        <li><a href="#adhesion">Adhésion</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Faire un don</a></li>
+                        <li><a href="#">Bénévolat</a></li>
+                    </ul>
+                </div>
+                <div class="colonne-footer">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 L'afrique qui ose. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modales -->
-    <div id="modale-parrainage" class="modale">
-        <div class="contenu-modale">
-            <div class="entete-modale">
-                <h3>Parrainez Gnamien Konan</h3>
-                <span class="fermer" onclick="fermerModale('modale-parrainage')">&times;</span>
-            </div>
-            <div class="corps-modale">
-                <p>Votre parrainage est un acte citoyen fort. Remplissez ce formulaire pour officialiser votre soutien.</p>
-                <form id="formulaire-parrainage-modale">
-                    <div class="groupe-formulaire">
-                        <label for="nom-parrain">Nom & Prénom *</label>
-                        <input type="text" id="nom-parrain" name="name" required>
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label for="numero-id-parrain">Numéro de carte d'électeur ou CNI *</label>
-                        <input type="text" id="numero-id-parrain" name="id_number" required>
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label for="localisation-parrain">Commune / Région *</label>
-                        <input type="text" id="localisation-parrain" name="location" required>
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label for="contact-parrain">Contact *</label>
-                        <input type="text" id="contact-parrain" name="contact" required>
-                    </div>
-                    <div class="groupe-cases-a-cocher">
-                        <input type="checkbox" id="consentement-parrain" name="consent" required>
-                        <label for="consentement-parrain">Je consens à parrainer officiellement Gnamien Konan</label>
-                    </div>
-                    <button type="submit" class="bouton-primaire">Confirmer mon parrainage</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="modale-adhesion" class="modale">
-        <div class="contenu-modale">
-            <div class="entete-modale">
-                <h3>Rejoignez le mouvement</h3>
-                <span class="fermer" onclick="fermerModale('modale-adhesion')">&times;</span>
-            </div>
-            <div class="corps-modale">
-                <p>L'avenir se construit avec celles et ceux qui osent. Le changement commence par l'engagement citoyen.</p>
-                <form id="formulaire-adhesion">
-                    <div class="groupe-formulaire">
-                        <label for="nom-adhesion">Nom & Prénom *</label>
-                        <input type="text" id="nom-adhesion" name="name" required>
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label for="telephone-adhesion">Téléphone *</label>
-                        <input type="tel" id="telephone-adhesion" name="phone" required>
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label for="email-adhesion">Email</label>
-                        <input type="email" id="email-adhesion" name="email">
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label for="commune-adhesion">Commune *</label>
-                        <input type="text" id="commune-adhesion" name="commune" required>
-                    </div>
-                    <div class="groupe-formulaire">
-                        <label>Choisissez votre rôle :</label>
-                        <div class="groupe-cases-a-cocher">
-                            <input type="checkbox" id="role-collecteur" name="roles" value="collector">
-                            <label for="role-collecteur">Collecteur de parrainage</label>
-                        </div>
-                        <div class="groupe-cases-a-cocher">
-                            <input type="checkbox" id="role-local" name="roles" value="local">
-                            <label for="role-local">Responsable local</label>
-                        </div>
-                        <div class="groupe-cases-a-cocher">
-                            <input type="checkbox" id="role-benevole" name="roles" value="volunteer">
-                            <label for="role-benevole">Bénévole</label>
-                        </div>
-                        <div class="groupe-cases-a-cocher">
-                            <input type="checkbox" id="role-ambassadeur" name="roles" value="ambassador">
-                            <label for="role-ambassadeur">Ambassadeur digital</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="bouton-primaire">Rejoindre le mouvement</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div id="modale-don" class="modale">
-        <div class="contenu-modale">
-            <div class="entete-modale">
-                <h3>Soutenez une campagne intègre</h3>
-                <span class="fermer" onclick="fermerModale('modale-don')">&times;</span>
-            </div>
-            <div class="corps-modale">
-                <p>100% citoyenne, votre contribution nous aide à financer une campagne transparente.</p>
-                <div class="options-don">
-                    <h4>Modalités de don :</h4>
-                    <div class="methodes-don">
-                        <div class="methode-don">
-                            <h5>Mobile Money</h5>
-                            <p>MTN: 07 07 07 07 07<br>Orange: 07 07 07 07 07<br>Moov: 07 07 07 07 07</p>
-                        </div>
-                        <div class="methode-don">
-                            <h5>Virement bancaire</h5>
-                            <p>Contactez-nous pour les détails bancaires</p>
-                        </div>
-                        <div class="methode-don">
-                            <h5>Don matériel</h5>
-                            <p>T-shirts, affiches, carburant, etc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="objectif-don">
-                    <h4>Objectif du mois :</h4>
-                    <p>Récolter 10 000 000 FCFA pour financer la tournée nationale de sensibilisation.</p>
-                    <div class="barre-progression">
-                        <div class="remplissage-progression" style="width: 35%">35%</div>
-                    </div>
-                    <p>3 500 000 FCFA collectés sur 10 000 000 FCFA</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
